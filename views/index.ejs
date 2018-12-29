@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Values Of Form Elements Using jQuery</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="stylesheets/style.css"/>
+<!-- Include JS File Here -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+<div class="main">
+<h2>Aditya Engineering College</h2>
+<form action="/get_result" method="post">
+<!-- Text -->
+<label>HallTicket No :</label>
+<input type="text" id="text" name="ht_no" value="" />
+<input type="submit"  value="Get Result"/>
+<input type="button" id="text_reset" value=" Reset "/>
+
+
+</form>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('#text_reset').click(function() {
+$("#text").val('');
+});
+});
+
+</script>
+</html>
+

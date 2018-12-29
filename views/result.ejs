@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>See Other Result <a href="/result">Go Back</a></h2>
+
+<table id="myTable">
+  <tr>
+   
+    <th>Htno</th>
+    <th>Subcode</th>
+    <th>Subname</th>
+      <th>Grade</th>
+    <th>Credits</th>
+  </tr>
+    <% results.forEach(function(result) { %>
+  <tr>
+    <td><%= result.Htno %> </td>
+    <td><%= result.Subcode %> </td>
+    <td><%= result.Subname %> </td>
+     <td><%= result.Grade %> </td>
+    <td><%= result.Credits %> </td>
+  </tr>
+   <% }); %>  
+
+</table>
+<button  onclick="myFunction()">Get Gpa</button>
+
+<script type="text/javascript">
+  function myFunction() {
+
+var sum =0;
+  var x = document.getElementById("myTable").rows.length-1;
+   
+   
+  for (var i = 1; i <= x; i++) {
+   
+    y = document.getElementById("myTable").rows[i].cells;
+      var point=String(y[3].innerHTML).trim();
+
+      if(point=="F" || point=="ABSENT" )
+      {
+           alert(point);
+           alert(i);
+      }
+    parseInt(y[4].innerHTML, 10);
+       
+   
+  }
+     
+   }
+   /*
+   */
+</script>
+<script type="text/javascript">
+  
+    function points(grade) {
+    switch (grade) {
+  case "O":
+    point = 10;
+    break;
+  case "A":
+    point = 9;
+    break;
+  case "B":
+    point = 8;
+    break;
+  case "C":
+    point = 7;
+    break;
+  case "D":
+    point = 6;
+    break;
+  case "F":
+    point = 0;
+    break;
+  case  "ABSENT":
+    point = 0;
+}    
+    }
+</script>
+</body>
+</html>
