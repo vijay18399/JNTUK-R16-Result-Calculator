@@ -134,4 +134,12 @@ router.get('/some', function(req, res, next) {
 
   res.render('delete');
 });
+router.get('/adminpanel', function(req, res, next) {
+
+  res.render('adminpage');
+});
+router.get('/homepage', function(req, res, next) {
+
+  res.render('homepage');
+});
 module.exports = router;
