@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Button Styles</h2>
+
+  <form action="/delete" method="post">
+   
+           
+
+
+  </form>
+  <button type="button" value="sem1" class="btn del">sem1</button>
+  <button type="button" value="sem2" class="btn del btn-default">Sem2</button>
+  <button type="button" value="sem3" class="btn  del btn-primary">sem3</button>
+  <button type="button" value="sem4" class="btn del btn-success">sem4</button>
+  <button type="button" value="sem5" class="btn del btn-info">sem5</button>
+  <button type="button" value="sem6" class="btn del btn-warning">sem6</button>
+  <button type="button" value="sem7" class="btn del btn-danger">sem7</button>
+  <button type="button" value="sem8" class="btn del btn-link">sem8</button>    
+      <button type="button" value="supply" class="btn del btn-link">supply</button>  
+</div>
+<script>
+    
+        $('.del').click(function() {
+    var id = $(this).val();
+    //alert(id);
+    $.post('/delete', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
+    </script>
+</body>
+</html>

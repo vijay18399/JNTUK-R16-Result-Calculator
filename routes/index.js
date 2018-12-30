@@ -23,21 +23,52 @@ var storage = multer.diskStorage({ //multers disk storage settings
 var upload = multer({
   storage: storage
 })
-router.get('/', function(req, res, next) {
-  res.render('result');
+router.get('/sem1', function(req, res, next) {
+  res.render('result',{sem:'sem1'});
+});
+router.get('/sem2', function(req, res, next) {
+  res.render('result',{sem:'sem2'});
+});
+router.get('/sem3', function(req, res, next) {
+  res.render('result',{sem:'sem3'});
+});
+router.get('/sem3', function(req, res, next) {
+  res.render('result',{sem:'sem3'});
+});
+router.get('/sem4', function(req, res, next) {
+  res.render('result',{sem:'sem4'});
+});
+router.get('/sem5', function(req, res, next) {
+  res.render('result',{sem:'sem5'});
+});
+router.get('/sem6', function(req, res, next) {
+  res.render('result',{sem:'sem6'});
+});
+router.get('/sem7', function(req, res, next) {
+  res.render('result',{sem:'sem7'});
+});
+router.get('/sem8', function(req, res, next) {
+  res.render('result',{sem:'sem8'});
+});
+router.get('/supply', function(req, res, next) {
+  res.render('result',{sem:'supply'});
 });
 router.post('/get_result', function (req, res) {
   console.log(req.body.ht_no);
+console.log(req.body.sem);
   var ht_no = req.body.ht_no;
-  sem1.find({
-    "Htno": ht_no
-  }, function (err, results) {
+var sem=req.body.sem;
+    data={
+     "Htno": ht_no  ,
+        "sem" : sem.trim()
+    }
+    console.log(data);
+sem1.find(data, function (err, results) {
+    console.log(results);
     res.render('index', {
       'results': results
     });
   });
-
-
 });
 router.get('/admin', function(req, res, next) {
   res.render('admin');
@@ -89,4 +120,18 @@ console.log(moment().format('DD/MM/YYYY'));
   res.redirect('/admin');
 
 }); });
+
+router.post('/delete', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    sem1.remove({"sem":id}, function(err,docs){
+   
+      res.send(docs);
+    });
+});
+
+router.get('/some', function(req, res, next) {
+
+  res.render('delete');
+});
 module.exports = router;
