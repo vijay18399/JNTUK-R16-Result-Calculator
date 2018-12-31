@@ -140,7 +140,7 @@ router.get('/adminpanel', function(req, res, next) {
     
   
 
-  res.render('adminpage');    });
+  res.render('adminpage1');    });
 });
 router.get('/homepage', function(req, res, next) {
 
@@ -159,11 +159,19 @@ router.post('/dummy', upload.single('image'), function(req, res) {
     res.redirect('/adminpanel');
     });
 });
-router.post('/edit_dummy', function(req, res) {
+router.post('/editdummy', function(req, res) {
     console.log(req.body.sno);
     var id = req.body.sno;
     dummy.find({"_id":id}, function(err,docs){
         console.log(docs);
+      res.send(docs);
+    });
+});
+router.post('/removedummy', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    dummy.remove({"_id":id}, function(err,docs){
+        //console.log(docs);
       res.send(docs);
     });
 });
