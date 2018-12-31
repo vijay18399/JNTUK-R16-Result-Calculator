@@ -4,7 +4,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/result');
 var supply = db.get('supply');
 var sem1 = db.get('sem1');
-var sem2 = db.get('sem2');
+var dummy = db.get('dummy');
 var pdf2table = require('pdf2table');
 var fs = require('fs');
 var multer = require('multer');
@@ -135,11 +135,36 @@ router.get('/some', function(req, res, next) {
   res.render('delete');
 });
 router.get('/adminpanel', function(req, res, next) {
+      dummy.find({}, function(err,docs){
+    res.locals.dummies=docs;
+    
+  
 
-  res.render('adminpage');
+  res.render('adminpage');    });
 });
 router.get('/homepage', function(req, res, next) {
 
   res.render('homepage');
+});
+router.post('/dummy', upload.single('image'), function(req, res) {
+    console.log(req.body.name);
+    var data = {
+        name1 : req.body.name1,
+         name2 : req.body.name2,
+          name3 : req.body.name3,
+        fileloc : 'uploads/' + req.file.originalname
+    }
+    dummy.insert(data, function(err,data){
+    console.log(data);
+    res.redirect('/adminpanel');
+    });
+});
+router.post('/edit_dummy', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    dummy.find({"_id":id}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
+    });
 });
 module.exports = router;

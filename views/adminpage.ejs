@@ -1,554 +1,653 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <!--================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 4.0
-	Author: PIXINVENT
-	Author URL: https://themeforest.net/user/pixinvent/portfolio
-  ================================================================================ -->
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
-    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
-    <title>Materialize - Material Design Admin Template</title>
-    <!-- Favicons-->
-    <link rel="icon" href="https://image.flaticon.com/icons/svg/1328/1328212.svg" sizes="32x32">
-    <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="https://image.flaticon.com/icons/svg/1328/1328212.svg">
-    <!-- For iPhone -->
-    <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="https://image.flaticon.com/icons/svg/1328/1328212.svg">
-    <!-- For Windows Phone -->
-    <!-- CORE CSS-->
-    <link href="css//materialize.css" type="text/css" rel="stylesheet">
-    <link href="css//style.css" type="text/css" rel="stylesheet">
-    <!-- Custome CSS-->
-    <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
-    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-    <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
-      
-
-  </head>
-  <body>
-    <!-- Start Page Loading -->
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <!-- End Page Loading -->
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-    <!-- START HEADER -->
-    <header id="header" class="page-topbar">
-      <!-- start header nav-->
-      <div class="navbar-fixed">
-        <nav class="navbar-color gradient-45deg-light-blue-cyan">
-          <div class="nav-wrapper">
-            <ul class="left">
-              <li>
-                <h1 class="logo-wrapper">
-                  <a href="index.html" class="brand-logo darken-1">
-                    <img src="images/logo.png"  alt="materialize logo">
-                    <span class="logo-text hide-on-med-and-down">Exam Portal</span>
-                  </a>
-                </h1>
-              </li>
-            </ul>
-
-          </div>
-        </nav>
+   <!--================================================================================
+      Item Name: Materialize - Material Design Admin Template
+      Version: 4.0
+      Author: PIXINVENT
+      Author URL: https://themeforest.net/user/pixinvent/portfolio
+       ================================================================================ -->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+      <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+      <title>Materialize - Material Design Admin Template</title>
+      <!-- Favicons-->
+      <link rel="icon" href="https://image.flaticon.com/icons/svg/1328/1328212.svg" sizes="32x32">
+      <!-- Favicons-->
+      <link rel="apple-touch-icon-precomposed" href="https://image.flaticon.com/icons/svg/1328/1328212.svg">
+      <!-- For iPhone -->
+      <meta name="msapplication-TileColor" content="#00bcd4">
+      <meta name="msapplication-TileImage" content="https://image.flaticon.com/icons/svg/1328/1328212.svg">
+      <!-- For Windows Phone -->
+      <!-- CORE CSS-->
+      <link href="css//materialize.css" type="text/css" rel="stylesheet">
+      <link href="css//style.css" type="text/css" rel="stylesheet">
+      <!-- Custome CSS-->
+      <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
+      <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+      <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+      <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- Start Page Loading -->
+      <div id="loader-wrapper">
+         <div id="loader"></div>
+         <div class="loader-section section-left"></div>
+         <div class="loader-section section-right"></div>
       </div>
-      <!-- end header nav-->
-    </header>
-    <!-- END HEADER -->
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-    <!-- START MAIN -->
-    <div id="main">
-      <!-- START WRAPPER -->
-      <div class="wrapper">
-        <!-- START LEFT SIDEBAR NA--->
-        <aside id="left-sidebar-nav">
-          <ul id="slide-out" class="side-nav fixed leftside-navigation">
-      
-            <li class="no-padding">
-              <ul class="collapsible" data-collapsible="accordion">
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab1')" id="defaultOpen"  class="waves-effect waves-cyan">
-                      <i class="material-icons">pie_chart_outlined</i>
-                      <span class="nav-text">Result Updates</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab2')" class="waves-effect waves-cyan">
-                      <i class="material-icons">cast</i>
-                      <span class="nav-text">Result</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab3')" class="waves-effect waves-cyan">
-                      <i class="material-icons">insert_link</i>
-                      <span class="nav-text">Exam Schedules</span>
-                    </a>
-                </li>
-           
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab4')" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_size</i>
-                      <span class="nav-text">Byndr 2.0</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab5')" class="waves-effect waves-cyan">
-                      <i class="material-icons">invert_colors</i>
-                      <span class="nav-text">Technologies</span>
-                    </a>
-                </li>
+      <!-- End Page Loading -->
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+      <!-- START HEADER -->
+      <header id="header" class="page-topbar">
+         <!-- start header nav-->
+         <div class="navbar-fixed">
+            <nav class="navbar-color gradient-45deg-light-blue-cyan">
+               <div class="nav-wrapper">
+                  <ul class="left">
+                     <li>
+                        <h1 class="logo-wrapper">
+                           <a href="index.html" class="brand-logo darken-1">
+                           <img src="images/logo.png"  alt="materialize logo">
+                           <span class="logo-text hide-on-med-and-down">Exam Portal</span>
+                           </a>
+                        </h1>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+         <!-- end header nav-->
+      </header>
+      <!-- END HEADER -->
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+      <!-- START MAIN -->
+      <div id="main">
+         <!-- START WRAPPER -->
+         <div class="wrapper">
+            <!-- START LEFT SIDEBAR NA--->
+            <aside id="left-sidebar-nav">
+               <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                  <li class="no-padding">
+                     <ul class="collapsible" data-collapsible="accordion">
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab1')" id="defaultOpen"  class="waves-effect waves-cyan">
+                           <i class="material-icons">pie_chart_outlined</i>
+                           <span class="nav-text">Result Updates</span>
+                           </a>
+                        </li>
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab2')" class="waves-effect waves-cyan">
+                           <i class="material-icons">cast</i>
+                           <span class="nav-text">Result</span>
+                           </a>
+                        </li>
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab3')" class="waves-effect waves-cyan">
+                           <i class="material-icons">insert_link</i>
+                           <span class="nav-text">Exam Schedules</span>
+                           </a>
+                        </li>
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab4')" class="waves-effect waves-cyan">
+                           <i class="material-icons">format_size</i>
+                           <span class="nav-text">Byndr 2.0</span>
+                           </a>
+                        </li>
+              
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab6')" class="waves-effect waves-cyan">
+                           <i class="material-icons">lightbulb_outline</i>
+                           <span class="nav-text">Syllabus </span>
+                           </a>
+                        </li>
+                        <li class="bold">
+                           <a onclick="opentab(event, 'tab7')" class="waves-effect waves-cyan">
+                           <i class="material-icons">format_color_text</i>
+                           <span class="nav-text">Messages</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="btn waves-effect waves-light gradient-45deg-red-pink" href="https://pixinvent.com/materialize-material-design-admin-template/landing/" target="_blank">
+                           <i class="material-icons white-text">file_upload</i>Share PDF..!
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+               <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
+               <i class="material-icons">menu</i>
+               </a>
+            </aside>
+            <div class="container">
+               <div class="section row tabcontent " id="tab4" >
+                  <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                     <div class="card-panel">
+                        <h4 class="header center">Feel Free to Contact Us</h4>
+                        <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                        <form enctype='multipart/form-data' method="post" action="/dummy">
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <select id="name1" name="name1">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                 </select>
+                                 <label>Materialize Select</label>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col s12">
+                                 <select name="name2" id="name2" class="browser-default">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="11">Option 11</option>
+                                    <option value="21">Option 21</option>
+                                    <option value="31">Option 31</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <i class="material-icons prefix">library_books</i>
+                                 <input name="name3" id="name3" type="text" class="validate">
+                                 <label for="Subject name">Subject</label>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <i class="material-icons prefix">file_upload</i>
+                                 <input name="image" type="file" class="validate">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                                 <i class="material-icons right">send</i>
+                                 </button>
+                              </div>
+                           </div>
+                        </form>
+                        <table class="striped " >
+                           <thead>
+                              <tr>
+                                <th>Name</th>
+                                 <th>Item Name</th>
+                                 <th>Item Price</th>
+                                 <th>Name</th>
+                                
+                                 <th>Item Price</th>
+                                 <th>Item Price</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                                <% dummies.forEach(function(result) { %>
+                              <tr>
+                                <td><%= result.name1 %></td>
+                                <td><%= result.name2 %></td>
+                                 <td><%= result.name3 %></td>
+                                 <td><%= result.fileloc %></td>
+                                 <td>  <button class="btn small blue edit"  value="<%= result._id %>" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+ <% }); %>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="section tabcontent " id="tab6">
+                  <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                     <div class="card-panel">
+                        <h4 class="header center">Feel Free to Contact Us</h4>
+                        <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                        <form action="#">
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <select>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                 </select>
+                                 <label>Materialize Select</label>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col s12">
+                                 <select class="browser-default">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <i class="material-icons prefix">library_books</i>
+                                 <input id="name4" type="text" class="validate">
+                                 <label for="Subject name">Subject</label>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <i class="material-icons prefix">file_upload</i>
+                                 <input id="name4" type="file" class="validate">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                                 <i class="material-icons right">send</i>
+                                 </button>
+                              </div>
+                           </div>
+                        </form>
+                        <table class="striped " >
+                           <thead>
+                              <tr>
+                                 <th>Name</th>
+                                 <th>Item Name</th>
+                                 <th>Item Price</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Alvin</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Alan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Jonathan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="section tabcontent" id="tab2">
+               <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                  <div class="card-panel">
+                     <h4 class="header center">Upload Result Pdf</h4>
+                     <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                     <div class="row">
+                        <form class="col s12">
+                           <div class="row">
+                              <div class="col s12">
+                                 <select class="browser-default">
+                                    <option value="" selected disabled >Choose Semester</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <i class="material-icons prefix">attachment</i>
+                                 <input id="email4" type="file" class="validate">
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="row">
+                                 <div class="input-field col s12">
+                                    <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                                    <i class="material-icons right">send</i>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                        <table class="striped " >
+                           <thead>
+                              <tr>
+                                 <th>Name</th>
+                                 <th>Item Name</th>
+                                 <th>Item Price</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Alvin</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Alan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Jonathan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="section tabcontent" id="tab3">
+            <div class="  col s12 m8 l8  offset-l2 offset-m2">
+               <div class="card-panel">
+                  <h4 class="header center">Feel Free to Contact Us</h4>
+                  <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                  <form action="#">
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                           </select>
+                           <label>Materialize Select</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col s12">
+                           <select class="browser-default">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <i class="material-icons prefix">library_books</i>
+                           <input id="name4" type="text" class="validate">
+                           <label for="Subject name">Subject</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <i class="material-icons prefix">file_upload</i>
+                           <input id="name4" type="file" class="validate">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                           <i class="material-icons right">send</i>
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+                  <table class="striped " >
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Item Name</th>
+                           <th>Item Price</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Alvin</td>
+                           <td>  <button class="btn small blue" type="submit" name="action">
+                              <i class="material-icons ">edit</i>
+                              </button>
+                           </td>
+                           <td>  <button class="btn small red" type="submit" name="action">
+                              <i class="material-icons ">delete</i>
+                              </button>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Alan</td>
+                           <td>  <button class="btn small blue" type="submit" name="action">
+                              <i class="material-icons ">edit</i>
+                              </button>
+                           </td>
+                           <td>  <button class="btn small red" type="submit" name="action">
+                              <i class="material-icons ">delete</i>
+                              </button>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Jonathan</td>
+                           <td>  <button class="btn small blue" type="submit" name="action">
+                              <i class="material-icons ">edit</i>
+                              </button>
+                           </td>
+                           <td>  <button class="btn small red" type="submit" name="action">
+                              <i class="material-icons ">delete</i>
+                              </button>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="section tabcontent" id="tab1">
+            <div class="  col s12 m8 l8  offset-l2 offset-m2">
+               <div class="card-panel">
+                  <h4 class="header center">Feel Free to Contact Us</h4>
+                  <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                  <form action="#">
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                           </select>
+                           <label>Materialize Select</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col s12">
+                           <select class="browser-default">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <i class="material-icons prefix">library_books</i>
+                           <input id="name4" type="text" class="validate">
+                           <label for="Subject name">Subject</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <i class="material-icons prefix">file_upload</i>
+                           <input id="name4" type="file" class="validate">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                           <i class="material-icons right">send</i>
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
 
-                <li class="bold">
-                  <a onclick="opentab(event, 'tab6')" class="waves-effect waves-cyan">
-                    <i class="material-icons">lightbulb_outline</i>
-                    <span class="nav-text">Syllabus </span>
-                  </a>
-                </li>
+         <div class="section tabcontent" id="tab7">
+            <div class="  col s12 m8 l8  offset-l2 offset-m2">
+               <div class="card-panel">
+                  <h4 class="header center">Feel Free to Contact Us</h4>
+                  <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
+                        <table class="striped " >
+                           <thead>
+                              <tr>
+                                 <th>Name</th>
+                                 <th>Item Name</th>
+                                 <th>Item Price</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Alvin</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Alan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Jonathan</td>
+                                 <td>  <button class="btn small blue" type="submit" name="action">
+                                    <i class="material-icons ">edit</i>
+                                    </button>
+                                 </td>
+                                 <td>  <button class="btn small red" type="submit" name="action">
+                                    <i class="material-icons ">delete</i>
+                                    </button>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer class="page-footer gradient-45deg-light-blue-cyan">
+         <div class="footer-copyright">
+            <div class="container">
+               <span>
+                  Copyright ©
+                  <script type="text/javascript">
+                     document.write(new Date().getFullYear());
+                  </script> <a class="grey-text text-lighten-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.
+               </span>
+               <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-2" href="https://pixinvent.com/">PIXINVENT</a></span>
+            </div>
+         </div>
+      </footer>
+      <!-- END FOOTER -->
+      <!-- ================================================
+         Scripts
+         ================================================ -->
+      <script>
+         function opentab(evt, tabname) {
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("tabcontent");
+           for (i = 0; i < tabcontent.length; i++) {
+             tabcontent[i].style.display = "none";
+           }
+           tablinks = document.getElementsByClassName("tablinks");
+           for (i = 0; i < tablinks.length; i++) {
+             tablinks[i].className = tablinks[i].className.replace(" active", "");
+           }
+           document.getElementById(tabname).style.display = "block";
+           evt.currentTarget.tabname += " active";
+         }
+         
+         // Get the element with id="defaultOpen" and click on it
+         document.getElementById("defaultOpen").click();
         
-                       <li class="bold">
-                  <a onclick="opentab(event, 'tab7')" class="waves-effect waves-cyan">
-                      <i class="material-icons">format_color_text</i>
-                      <span class="nav-text">Contact Us</span>
-                    </a>
-                </li>
-                          <li>
-                  <a class="btn waves-effect waves-light gradient-45deg-red-pink" href="https://pixinvent.com/materialize-material-design-admin-template/landing/" target="_blank">
-                    <i class="material-icons white-text">file_upload</i>Share PDF..!
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
-            <i class="material-icons">menu</i>
-          </a>
-        </aside>
-        <div class="container">
-            <div class="section row tabcontent " id="tab4" >
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
+            $('.edit').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/editdummy', {
+    sno: id
+    }, function(data, xhr) {
+    var jsondata = JSON.stringify(data);
+    var data1 = JSON.parse(jsondata);
 
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-            </div>
-            <div class="section tabcontent " id="tab6">
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
-
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-            </div>
-            </div>
-       
-          <div class="section tabcontent" id="tab2">
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Upload Result Pdf</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-                    <div class="row">
-                      <form class="col s12">
-                        <div class="row">
-                            <div class="col s12">
-                          <select class="browser-default">
-        <option value="" selected disabled >Choose Semester</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-                                </select></div>
-                        </div>
-                        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">attachment</i>
-                            <input id="email4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-     
-                        <div class="row">
-                
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-                    <div class="section tabcontent" id="tab3">
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
-
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-                
-            </div>
-            <div class="section tabcontent" id="tab1">
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
-
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-                
-            </div>
-            <div class="section tabcontent" id="tab5">
-               
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
-
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-
-                </div>
-     
-             <div class="section tabcontent" id="tab7">
-            <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                  <div class="card-panel">
-                    <h4 class="header center">Feel Free to Contact Us</h4>
-                       <p class="gradient-45deg-light-blue-cyan white-text center">Your Response Recorded</p>
-<form action="#">
-    <div class="row">
-      <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div></div>
-      <div class="row">
-    <div class="col s12">
-
-      <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-          </div>
-    </div>
-             <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">library_books</i>
-                            <input id="name4" type="text" class="validate">
-                            <label for="Subject name">Subject</label>
-                          </div>
-                        </div>
-        <div class="row">
-                          <div class="input-field col s12">
-                            <i class="material-icons prefix">file_upload</i>
-                            <input id="name4" type="file" class="validate">
-                           
-                          </div>
-                        </div>
-               <div class="row">
-                            <div class="input-field col s12">
-                              <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
-                                <i class="material-icons right">send</i>
-                              </button>
-                            </div>
-                          </div>
-
-  </form>
-                  </div>
-                </div> 
-         
-            </div>
-            </div>
-          
-         
-    
+    $('#name2').val(data1[0].name2);
+    $('#name1').val(data1[0].name1);
+     $('#name3').val(data1[0].name3);
+      $('#fileloc').val(data1[0].fileloc);
    
-    <footer class="page-footer gradient-45deg-light-blue-cyan">
-        <div class="footer-copyright">
-          <div class="container">
-            <span>Copyright ©
-              <script type="text/javascript">
-                document.write(new Date().getFullYear());
-              </script> <a class="grey-text text-lighten-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span>
-            <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-2" href="https://pixinvent.com/">PIXINVENT</a></span>
-          </div>
-        </div>
-    </footer>
-    <!-- END FOOTER -->
-    <!-- ================================================
-    Scripts
-    ================================================ -->
-            <script>
-function opentab(evt, tabname) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabname).style.display = "block";
-  evt.currentTarget.tabname += " active";
-}
+    });
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-                
-
-</script>
-    <!-- jQuery Library -->
-    <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
-    <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--scrollbar-->
-    <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
-  </body>
+    });                 
+         
+      </script>
+      <!-- jQuery Library -->
+      <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
+      <!--materialize js-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <!--scrollbar-->
+      <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+      <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+      <script type="text/javascript" src="js/plugins.js"></script>
+      <!--custom-script.js - Add your own theme custom JS-->
+      <script type="text/javascript" src="js/custom-script.js"></script>
+   </body>
 </html>
+
