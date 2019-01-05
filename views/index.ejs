@@ -1,132 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================ -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Aditya Exam Portal is just meant for exam updates and results ">
+    <meta name="keywords" content="AEC,aditya ,aditya engineering college ,results,jntuk,r16,btech">
+    <title>Aditya Exam Portal</title>
+    <!----Icons--->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Favicons-->
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="css/themes/fixed-menu/materialize.css" type="text/css" rel="stylesheet">
+    <link href="css/themes/fixed-menu/style.css" type="text/css" rel="stylesheet">
+    <!-- Custome CSS-->
+    <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
+    <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+  </head>
+  <body class="cyan">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+    <div id="login-page" class="row">
+      <div class="col s12 z-depth-4 card-panel">
+        <form class="login-form" method="post" action="/login">
+          <div class="row">
+            <div class="input-field col s12 center">
+              <img src="http://web.aditya.ac.in/cbse/wp-content/uploads/2017/04/logo-SMALL.png" alt="" class=" responsive-img valign profile-image-login">
+              <p class="center login-form-text">Aditya Exams portal</p>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix pt-5">person_outline</i>
+              <input id="username" type="text" name="username">
+              <label for="username" class="center-align">Username</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix pt-5">lock_outline</i>
+              <input id="password" type="password" name="password">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button type="submit" class="btn waves-effect waves-light col s12">Login</button>
+            </div>
+          </div>
 
-<head>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th,
-        td {
-            text-align: left;
-            padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
-        
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-</head>
-
-<body  >
-
-    <h2>See Other Result <a href="/result">Go Back</a></h2>
-
-    <table id="myTable">
-        <tr>
-
-            <th>Htno</th>
-            <th>Subcode</th>
-            <th>Subname</th>
-            <th>Grade</th>
-            <th>Credits</th>
-        </tr>
-        <% results.forEach(function(result) { %>
-            <tr>
-                <td>
-                    <%= result.Htno %>
-                </td>
-                <td>
-                    <%= result.Subcode %>
-                </td>
-                <td>
-                    <%= result.Subname %>
-                </td>
-                <td>
-                    <%= result.Grade %>
-                </td>
-                <td>
-                    <%= result.Credits %>
-                </td>
-            </tr>
-             <% }); %>
-
-    </table>
-    <h1 id="message">this is messga</h1>
-
-    <script type="text/javascript">
-        var x = document.getElementById("myTable").rows.length - 1;
-
-        var count = getcount(x);
-
-        function getcount(x) {
- var count = 0;
-            for (var i = 1; i <= x; i++) {
-                var y;
-               
-                y = document.getElementById("myTable").rows[i].cells;
-              
-                var point = String(y[3].innerHTML).trim();
-                  if(x>6){
-                      
-            
-        }
-                if (point == "F" || point == "ABSENT") {
-                
-                    document.getElementById("myTable").rows[i].style.backgroundColor = "#ffcccc";
-                    count = count + 1;
-                  
-                }
-
-            }
-            return count;
-        }
-
-       
-        if (parseInt(count) == 0) {
-            document.getElementById("message").innerHTML = "You Have Successfully Completed Your Seemster";
-
-        } else if (parseInt(count) > 0) {
-            document.getElementById("message").innerHTML = "Sorry You have " + count + "Backlogs";
-             
-        }
-        
-      
-    </script>
-    <script type="text/javascript">
-    function points(grade) {
-        var point=0;
-            switch (grade) {
-                case "O":
-                    point = 10;
-                    break;
-                case "A":
-                    point = 9;
-                    break;
-                case "B":
-                    point = 8;
-                    break;
-                case "C":
-                    point = 7;
-                    break;
-                case "D":
-                    point = 6;
-                    break;
-                case "F":
-                    point = 0;
-                    break;
-                case "ABSENT":
-                    point = 0;
-            }
-        }
-    </script>
-</body>
-
+        </form>
+      </div>
+    </div>
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
+    <!--materialize js-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <!--custom-script.js - Add your own theme custom JS-->
+    <script type="text/javascript" src="js/custom-script.js"></script>
+  </body>
 </html>

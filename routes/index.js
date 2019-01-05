@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var monk = require('monk');
-var db = monk('localhost:27017/result');
-var supply = db.get('supply');
-var sem1 = db.get('sem1');
-var dummy = db.get('dummy');
+var monk=require('monk');
+var db=monk('localhost:27017/exam');
+var admin=db.get('admin');
+var status=db.get('status');
+var resultrecords=db.get('resultrecords');
 var pdf2table = require('pdf2table');
 var fs = require('fs');
 var multer = require('multer');
-const moment = require('moment'); 
+const moment = require('moment');
 
 //----Uploading Code
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/')
+    cb(null, 'public/results/')
   },
   filename: function (req, file, cb) {
     //var datetimestamp = Date.now();
@@ -23,63 +23,35 @@ var storage = multer.diskStorage({ //multers disk storage settings
 var upload = multer({
   storage: storage
 })
-router.get('/sem1', function(req, res, next) {
-  res.render('result',{sem:'sem1'});
-});
-router.get('/sem2', function(req, res, next) {
-  res.render('result',{sem:'sem2'});
-});
-router.get('/sem3', function(req, res, next) {
-  res.render('result',{sem:'sem3'});
-});
-router.get('/sem3', function(req, res, next) {
-  res.render('result',{sem:'sem3'});
-});
-router.get('/sem4', function(req, res, next) {
-  res.render('result',{sem:'sem4'});
-});
-router.get('/sem5', function(req, res, next) {
-  res.render('result',{sem:'sem5'});
-});
-router.get('/sem6', function(req, res, next) {
-  res.render('result',{sem:'sem6'});
-});
-router.get('/sem7', function(req, res, next) {
-  res.render('result',{sem:'sem7'});
-});
-router.get('/sem8', function(req, res, next) {
-  res.render('result',{sem:'sem8'});
-});
-router.get('/supply', function(req, res, next) {
-  res.render('result',{sem:'supply'});
-});
-router.post('/get_result', function (req, res) {
-  console.log(req.body.ht_no);
-console.log(req.body.sem);
-  var ht_no = req.body.ht_no;
-var sem=req.body.sem;
-    data={
-     "Htno": ht_no  ,
-        "sem" : sem.trim()
+
+router.post('/login',function(req,res){
+  console.log(req.body.username);
+  console.log(req.body.password);
+  var data={
+    username : req.body.username,
+    password : req.body.password
+  }
+  admin.findOne(data, function(err,docs){
+    if(docs){
+      delete docs.password;
+        req.session.user=docs;
+        console.log('success');
+        res.redirect('/home');
     }
-    console.log(data);
-sem1.find(data, function (err, results) {
-    console.log(results);
-    res.render('index', {
-      'results': results
-    });
+    else{
+      console.log('fail');
+      res.render('login', {err:'Invalid login credentials', title: 'CSR'})
+    }
   });
 });
-router.get('/admin', function(req, res, next) {
-  res.render('admin');
-});
-router.post('/upload', upload.single('pdf'), function (req, res) {
+
+router.post('/result', upload.single('pdf'), function (req, res) {
 console.log(moment().format('DD/MM/YYYY'));
-  console.log(req.body.sem);
+  console.log(req.body.semester);
   console.log(req.file.originalname);
   var date=moment().format('DD/MM/YYYY');
-  var sem = req.body.sem;
-  pdfloc = './public/uploads/' + req.file.originalname;
+  var semester = req.body.semester;
+  pdfloc = './public/results/' + req.file.originalname;
   //start
   fs.readFile(pdfloc, function (err, buffer) {
     if (err) return console.log(err);
@@ -102,11 +74,11 @@ console.log(moment().format('DD/MM/YYYY'));
               "Subname": rows[i][2],
               "Grade": rows[i][3],
               "Credits": rows[i][4],
-               "sem":sem,
-                "date":date
+               "Semester":semester,
+                "Date":date
             }
           
-         sem1.insert(data, function (err, docs) {
+         resultrecords.insert(data, function (err, docs) {
                   console.log(docs);
                 });
 
@@ -117,62 +89,127 @@ console.log(moment().format('DD/MM/YYYY'));
 
     }
   });
-  res.redirect('/admin');
+  res.redirect('/home');
 
 }); });
 
-router.post('/delete', function(req, res) {
-    //console.log(req.body.sno);
-    var id = req.body.sno;
-    sem1.remove({"sem":id}, function(err,docs){
-   
-      res.send(docs);
-    });
+
+
+router.get('/home', function(req, res, next) {
+  if(req.session && req.session.user){
+    res.locals.user = req.session.user;
+    console.log(req.session.user._id);
+ status.find({},function(err,docs){
+         console.log(docs);
+        res.locals.status = docs;
+ 
+
+ 
+     res.render('home');
+     }); 
+  }
+  else{
+    req.session.reset();
+    res.redirect('/');
+  }
 });
 
-router.get('/some', function(req, res, next) {
 
-  res.render('delete');
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
 });
-router.get('/adminpanel', function(req, res, next) {
-      dummy.find({}, function(err,docs){
-    res.locals.dummies=docs;
-    
+router.get('/home', function(req, res, next) {
+  res.render('home');
+});
+router.get('/@18399', function(req, res, next) {
+  res.render('register');
+});
+router.post('/register',function(req,res){
+    var data={ fullname:req.body.fullname,
+    	         username:req.body.username,
+    	         email:req.body.email,
+    	         password:req.body.password
+             }
+    admin.insert(data,function(err,docs){
   
+    if(err)
+  {
+    console.log(err);
+  }
+  else
+  {
+    console.log(docs);
 
-  res.render('adminpage1');    });
+  }
+  res.redirect('/')
+    
 });
-router.get('/homepage', function(req, res, next) {
+});
 
-  res.render('homepage');
-});
-router.post('/dummy', upload.single('image'), function(req, res) {
-    console.log(req.body.name);
+//status
+router.post('/status', upload.single('image'), function(req, res) {
+  
     var data = {
-        name1 : req.body.name1,
-         name2 : req.body.name2,
-          name3 : req.body.name3,
-        fileloc : 'uploads/' + req.file.originalname
+        semester : req.body.semester,
+         Stream : req.body.Stream,
+          Category : req.body.Category,
+          Status : req.body.Status
+      
+    
     }
-    dummy.insert(data, function(err,data){
-    console.log(data);
-    res.redirect('/adminpanel');
+    status.insert(data, function(err,data){
+    res.redirect('/home');
     });
 });
-router.post('/editdummy', function(req, res) {
+router.post('/edit_status', function(req, res) {
     console.log(req.body.sno);
     var id = req.body.sno;
-    dummy.find({"_id":id}, function(err,docs){
+    status.find({"_id":id}, function(err,docs){
+        console.log(docs);
+         res.send(docs);
+    });
+});
+router.post('/remove_status', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    status.remove({"_id":id}, function(err,docs){
         console.log(docs);
       res.send(docs);
     });
 });
-router.post('/removedummy', function(req, res) {
-    //console.log(req.body.sno);
+router.post('/update_status', function(req, res) {
+    console.log(req.body.Status);
+  var data = {
+    Status : req.body.Status     }
+  status.update({"_id":req.body.id},{$set:data}, function(err,docs){
+    console.log(docs);
+    res.redirect('/home');
+  });
+});
+
+//schedule
+router.post('/schedule', upload.single('image'), function(req, res) {
+  
+    var data = {
+        semester : req.body.semester,
+         Stream : req.body.Stream,
+          Category : req.body.Category,
+          Status : req.body.Status
+      
+    
+    }
+    status.insert(data, function(err,data){
+    res.redirect('/home');
+    });
+});
+
+//delte records
+router.post('/delete_record', function(req, res) {
+    console.log(req.body.sno);
     var id = req.body.sno;
-    dummy.remove({"_id":id}, function(err,docs){
-        //console.log(docs);
-      res.send(docs);
+    resultrecords.remove({"Semester":id}, function(err,docs){
+   res.redirect('/home');
     });
 });
 module.exports = router;

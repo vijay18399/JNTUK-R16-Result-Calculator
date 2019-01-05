@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Tell the browser to be responsive to screen width-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Favicon icon-->
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+   <title>NEWS</title>
+   <!-- Bootstrap Core CSS-->
+   <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Custom CSS-->
+   <link href="css/style.css" rel="stylesheet">
+   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+   <link href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css" rel="stylesheet">
+   <!-- You can change the theme colors from here-->
+   <link id="theme" href="css/colors/blue.css" rel="stylesheet">
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries--><!-- WARNING: Respond.js doesn't work if you view the page via file://--><!--if lt IE 9script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')-->
+</head>
+<!-- ==============================================================--><!-- Preloader - style you can find in spinners.css--><!-- ==============================================================-->
+<div class="preloader">
+   <svg class="circular" viewbox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+   </svg>
+</div>
+<!-- ==============================================================--><!-- Main wrapper - style you can find in pages.scss--><!-- ==============================================================-->
+<div id="main-wrapper">
+   <!-- ==============================================================--><!-- Topbar header - style you can find in pages.scss--><!-- ==============================================================-->
+   <header class="topbar">
+      <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+         <!-- ==============================================================--><!-- Logo--><!-- ==============================================================-->
+         <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+               <!-- Logo icon-->
+               <b>
+                  <!-- You can put here icon as well // <i class="wi wi-sunset"></i> //--><!-- Dark Logo icon--><img class="dark-logo" src="http://portwashington-news.com/wp-content/uploads/2016/07/CollegeNews.png" width="110px;" height="50px;" alt="homepage">
+               </b>
+               <!-- End Logo icon--><!-- Logo text-->
+               <span>
+                  <!-- dark Logo text--><!--img.dark-logo(src=alt='homepage')-->
+               </span>
+            </a>
+         </div>
+         <!-- ==============================================================--><!-- End Logo--><!-- ==============================================================-->
+         <div class="navbar-collapse">
+            <!-- ==============================================================--><!-- toggle and nav items--><!-- ==============================================================-->
+            <ul class="navbar-nav mr-auto mt-md-0">
+               <!-- This is-->
+               <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+               <li class="nav-item hidden-sm-down">
+                  <form class="app-search p-l-20"><input class="form-control" type="text" placeholder="Search for..."><a class="srh-btn"><i class="ti-search"></i></a></form>
+               </li>
+            </ul>
+            <!-- ==============================================================--><!-- User profile and search--><!-- ==============================================================-->
+            <ul class="navbar-nav my-lg-0">
+               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a></li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <!-- ==============================================================--><!-- End Topbar header--><!-- ==============================================================--><!-- ==============================================================--><!-- Left Sidebar - style you can find in sidebar.scss--><!-- ==============================================================-->
+   <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div class="scroll-sidebar">
+         <!-- Sidebar navigation-->
+         <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+               <li><a class="waves-effect" href="/"><i class="fa fa-server m-r-10" aria-hidden="true"></i>HOME</a></li>
+               <li><a class="waves-effect" href="/slider"><i class="fa fa-toggle-on m-r-10" aria-hidden="true"></i>SLIDER    </a></li>
+               <li><a class="waves-effect" href="/trainings"><i class="fa fa-cogs m-r-10" aria-hidden="true"></i>TRAININGS</a></li>
+               <li><a class="waves-effect" href="/workshops"><i class="fa fa-table m-r-10" aria-hidden="true"></i>WORKSHOPS</a></li>
+               <li><a class="waves-effect" href="/seminars"><i class="fa fa-user m-r-10" aria-hidden="true"></i>SEMINARS</a></li>
+               <li><a class="waves-effect" href="/event"><i class="fa fa-camera-retro m-r-10" aria-hidden="true"></i>EVENTS</a></li>
+               <li><a class="waves-effect" href="/placedcandidates"><i class="fa fa-users m-r-10" aria-hidden="true"></i>PLACED CANDIDATES</a></li>
+               <li><a class="waves-effect" href="/cdrive"><i class="fa fa-paper-plane m-r-10" aria-hidden="true"></i>CAMPUS DRIVE</a></li>
+               <li><a class="waves-effect" href="/exam"><i class="fa fa-bell m-r-10" aria-hidden="true"></i>EXAM UPDATES</a></li>
+               <li><a class="waves-effect" href="/tech"><i class="fa fa-newspaper-o m-r-10" aria-hidden="true"></i>TECH NEWS</a></li>
+               <li><a class="waves-effect" href="/articles"><i class="fa fa-pencil-square-o m-r-10" aria-hidden="true"></i>ARTICLES</a></li>
+               <li><a class="waves-effect" href="/trainers"><i class="fa fa-handshake-o m-r-10" aria-hidden="true"></i>TRAINERS</a></li>
+               <li><a class="waves-effect" href="/notice"><i class="fa fa-handshake-o m-r-10" aria-hidden="true"></i>NOTICE BOARD</a></li>
+               <li><a class="waves-effect" href="/circular"><i class="fa fa-handshake-o m-r-10" aria-hidden="true"></i>CIRCULAR</a></li>
+            </ul>
+            <div class="text-center m-t-30"></div>
+         </nav>
+         <!-- End Sidebar navigation-->
+      </div>
+      <!-- End Sidebar scroll-->
+   </aside>
+   <!-- ==============================================================--><!-- End Left Sidebar - style you can find in sidebar.scss--><!-- ==============================================================--><!-- ==============================================================--><!-- Page wrapper--><!-- ==============================================================-->
+   <div class="page-wrapper">
+      <!-- ==============================================================--><!-- Container fluid--><!-- ==============================================================-->
+      <div class="container-fluid">
+         <!-- ==============================================================--><!-- Bread crumb and right sidebar toggle--><!-- ==============================================================-->
+         <div class="row page-titles">
+            <div class="col-md-6 col-8 align-self-center">
+               <h3 class="text-themecolor m-b-0 m-t-0">Add New Trainings</h3>
+            </div>
+         </div>
+         <!-- ==============================================================--><!-- End Bread crumb and right sidebar toggle--><!-- ==============================================================--><!-- ==============================================================--><!-- Start Page Content--><!-- ==============================================================--><!-- Row--><!--form-->
+         <div class="container">
+            <div class="card">
+               <div class="card-block">
+                  <form method="post" action="/addtraining" enctype="multipart/form-data">
+                     <div class="form-group row">
+                        <div class="col-xs-4"><label for="ex1">Name</label><input class="form-control" id="ex1" name="name" type="text"><label for="usr">Conducted By:</label><input class="form-control" id="usr" type="text" name="conducted_by"><label for="pwd">Price:</label><input class="form-control" id="pwd" type="text" name="price"><label for="pwd">upload:</label><input class="form-control" id="pwd" type="file" name="image" required></div>
+                        <div class="col-xs-4">
+                           <label for="ex2">Date</label><input class="form-control" id="ex2" name="date" type="date"><label for="pwd">trainerid:</label><input class="form-control" id="usr" type="text" name="trainerid"><label for="sel1">Select College:</label>
+                           <select class="form-control" id="sel1" name="college">
+                              <option value="" selected="">Select College</option>
+                              <option value="Aditya Engineering College">Aditya Engineering College</option>
+                              <option value="Aditya College of Engineering and Technology">Aditya College of Engineering and Technology</option>
+                              <option value="Aditya College of Engineering">Aditya College of Engineering</option>
+                              <option value="Aditya Polytechnic Colleges">Aditya Polytechnic Colleges</option>
+                              <option value="Aditya Forensic College">Aditya Forensic College</option>
+                              <option value="Aditya Pharmacy College">Aditya Pharmacy College</option>
+                              <option value="Aditya Global Business School">Aditya Global Business School</option>
+                           </select>
+                           <label for="sel1">Select Block:</label>
+                           <select class="form-control" id="sel1" name="bhavan">
+                              <option value="" selected="">Select College</option>
+                              <option value="Abdul Kalam Bhavan">Abdul Kalam Bhavan</option>
+                              <option value="Visweswarayya Bhavan">Visweswarayya Bhavan</option>
+                              <option value="Cotton Bhavan">Cotton Bhavan</option>
+                              <option value="K.L.Rao Bhavan">K.L.Rao Bhavan</option>
+                              <option value="Bill Gates Bhavan">Bill Gates Bhavan</option>
+                              <option value="C.V Raman Bhavan">C.V Raman Bhavan</option>
+                              <option value="Newton Bhavan">Newton Bhavan</option>
+                           </select>
+                        </div>
+                        <div class="col-xs-4">
+                           <label for="sel1">Select Floor:</label>
+                           <select class="form-control" id="sel1" name="floor">
+                              <option value="Ground Floor">Ground Floor</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                           </select>
+                           <label for="pwd">Room No:</label><input class="form-control" id="usr" name="roomno" type="text"><label for="pwd">Lab:</label><input class="form-control" id="usr" name="lab" type="text">
+                        </div>
+                     </div>
+                     <div class="pull-right"><input class="btn btn-primary" type="submit" value="Add"></div>
+                  </form>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-block">
+                  <h4 class="card-title">Trainings</h4>
+                  <div class="table-responsive">
+                     <table class="table display" id="example">
+                        <thead>
+                           <tr>
+                              <th class="hide">Id</th>
+                              <th>Name</th>
+                              <th>price</th>
+                              <th>date</th>
+                              <th>conducted by</th>
+                              <th>trainerid</th>
+                              <th>college</th>
+                              <th>bhavan</th>
+                              <th>floor </th>
+                              <th>roomno</th>
+                              <th>lab</th>
+                              <th>image</th>
+                              <th>Edit</th>
+                              <th>Delete</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td class="hide">5c1506cf5a25fe1c58b58c2f</td>
+                              <td>Mean Stack</td>
+                              <td>3200</td>
+                              <td>2018-12-01</td>
+                              <td>T-HUB</td>
+                              <td>11112222</td>
+                              <td>Aditya College of Engineering</td>
+                              <td>Visweswarayya Bhavan</td>
+                              <td>3</td>
+                              <td>2</td>
+                              <td>6</td>
+                              <td><img src="uploads/1_kkXbE9GlS73U7x1iXHP_vQ.png" alt="Trulli" width="50" height="50"> </td>
+                              <td><button class="btn btn-info edit" data-toggle="modal" data-target="#myModal" value="5c1506cf5a25fe1c58b58c2f">Edit</button></td>
+                              <td><button class="btn btn-danger del" value="5c1506cf5a25fe1c58b58c2f">Remove</button></td>
+                           </tr>
+                           <tr>
+                              <td class="hide">5c1a40ed7a7649161caffaf0</td>
+                              <td>Mean Stack</td>
+                              <td>1200</td>
+                              <td>2018-12-20</td>
+                              <td>T-HUB</td>
+                              <td>11112222</td>
+                              <td>Aditya College of Engineering and Technology</td>
+                              <td></td>
+                              <td>Ground Floor</td>
+                              <td>121</td>
+                              <td>4</td>
+                              <td><img src="uploads/1_kkXbE9GlS73U7x1iXHP_vQ.png" alt="Trulli" width="50" height="50"> </td>
+                              <td><button class="btn btn-info edit" data-toggle="modal" data-target="#myModal" value="5c1a40ed7a7649161caffaf0">Edit</button></td>
+                              <td><button class="btn btn-danger del" value="5c1a40ed7a7649161caffaf0">Remove</button></td>
+                           </tr>
+                           <tr>
+                              <td class="hide">5c277715f7e1b116b0b406b3</td>
+                              <td>Mean Stack</td>
+                              <td>1200</td>
+                              <td>2018-12-07</td>
+                              <td>T-HUB</td>
+                              <td>11112222</td>
+                              <td>Aditya Polytechnic Colleges</td>
+                              <td>K.L.Rao Bhavan</td>
+                              <td>3</td>
+                              <td>121</td>
+                              <td>122</td>
+                              <td><img src="uploads/165667fef775f37.jpg" alt="Trulli" width="50" height="50"> </td>
+                              <td><button class="btn btn-info edit" data-toggle="modal" data-target="#myModal" value="5c277715f7e1b116b0b406b3">Edit</button></td>
+                              <td><button class="btn btn-danger del" value="5c277715f7e1b116b0b406b3">Remove</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- ==============================================================--><!-- End PAge Content--><!-- ==============================================================-->
+      </div>
+      <!-- ==============================================================--><!-- End Container fluid--><!-- ==============================================================--><!-- ==============================================================--><!-- footer--><!-- ==============================================================-->
+      <footer class="footer text-center">&copy; 2018 ADITYA NEWS</footer>
+      <!-- ==============================================================--><!-- End footer--><!-- ==============================================================-->
+   </div>
+   <!-- ==============================================================--><!-- End Page wrapper--><!-- ==============================================================-->
+</div>
+<!-- ==============================================================--><!-- End Wrapper--><!-- ==============================================================--><!-- ==============================================================--><!-- All Jquery--><!-- ==============================================================--><script src="assets/plugins/jquery/jquery.min.js"></script><!-- Bootstrap tether Core JavaScript--><script src="assets/plugins/bootstrap/js/tether.min.js"></script><script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script><!-- slimscrollbar scrollbar JavaScript--><script src="js/jquery.slimscroll.js"></script><!-- Wave Effects--><script src="js/waves.js"></script><!-- Menu sidebar--><script src="js/sidebarmenu.js"></script><!-- stickey kit--><script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script><!-- Custom JavaScript--><script src="js/custom.min.js"></script><!-- ==============================================================--><!-- This page plugins--><!-- ==============================================================--><!-- Flot Charts JavaScript--><script src="assets/plugins/flot/jquery.flot.js"></script><script src="assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script><script src="js/flot-data.js"></script><!-- ==============================================================--><!-- Style switcher--><!-- ==============================================================--><script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script><!--<script src="https://code.jquery.com/jquery-3.3.1.js">-->
+
+</script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js"></script><script>$(document).ready(function() {
+   $(".nav-tabs a").click(function() {
+   $(this).tab('show');
+   });
+   });
+   $('.edit').click(function() {
+   var id = $(this).val();
+   alert(id);
+   $.post('/edit_training', {
+   sno: id
+   }, function(data, xhr) {
+   var jsondata = JSON.stringify(data);
+   var data1 = JSON.parse(jsondata);
+   $('#id').val(data1[0]._id);
+   $('#name').val(data1[0].name);
+   $('#price').val(data1[0].price);
+   $('#date').val(data1[0].date);
+   $('#conducted_by').val(data1[0].conducted_by);
+   $('#trainerid').val(data1[0].trainerid);
+   $('#college').val(data1[0].college);
+   $('#bhavan').val(data1[0].bhavan);
+   $('#floor').val(data1[0].floor);
+   $('#roomno').val(data1[0].roomno);
+   $('#lab').val(data[0].lab);
+   $('#image').val(data1[0].image);
+   });
+   $('.find').show();
+   });
+   $('.del').click(function() {
+   var id = $(this).val();
+   //alert(id);
+   $.post('/remove_training', {
+   sno: id
+   }, function(data, xhr) {
+   location.reload();
+   });
+   });
+   $(document).ready(function() {
+   $('#example').DataTable();
+   } );
+</script>
+<div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+         <div class="modal-header">
+            <center>
+               <h4 class="modal-title">Update Training Details</h4>
+            </center>
+         </div>
+         <div class="modal-body">
+            <form method="post" action="/update_training">
+               <div class="form-group row">
+                  <div class="col-xs-4"><input class="hide" id="id" type="text" name="id"><label for="ex1">Name</label><input class="form-control" id="name" name="name" type="text"><label for="usr">Conducted By:</label><input class="form-control" id="conducted_by" type="text" name="conducted_by"><label for="pwd">Price:</label><input class="form-control" id="price" type="text" name="price"></div>
+                  <div class="col-xs-4">
+                     <label for="ex2">Date</label><input class="form-control" id="date" name="date" type="date"><label for="pwd">trainerid:</label><input class="form-control" id="trainerid" type="text" name="trainerid"><label for="sel1">Select College:</label>
+                     <select class="form-control" id="college" name="college">
+                        <option value="" selected="">Select College</option>
+                        <option value="Aditya Engineering College">Aditya Engineering College</option>
+                        <option value="Aditya College of Engineering and Technology">Aditya College of Engineering and Technology</option>
+                        <option value="Aditya College of Engineering">Aditya College of Engineering</option>
+                        <option value="Aditya Polytechnic Colleges">Aditya Polytechnic Colleges</option>
+                        <option value="Aditya Forensic College">Aditya Forensic College</option>
+                        <option value="Aditya Pharmacy College">Aditya Pharmacy College</option>
+                        <option value="Aditya Global Business School">Aditya Global Business School</option>
+                     </select>
+                     <label for="sel1">Select Block:</label>
+                     <select class="form-control" id="bhavan" name="bhavan">
+                        <option value="" selected="">Select College</option>
+                        <option value="Abdul Kalam Bhavan">Abdul Kalam Bhavan</option>
+                        <option value="Visweswarayya Bhavan">Visweswarayya Bhavan</option>
+                        <option value="Cotton Bhavan">Cotton Bhavan</option>
+                        <option value="K.L.Rao Bhavan">K.L.Rao Bhavan</option>
+                        <option value="Bill Gates Bhavan">Bill Gates Bhavan</option>
+                        <option value="C.V Raman Bhavan">C.V Raman Bhavan</option>
+                        <option value="Newton Bhavan">Newton Bhavan</option>
+                     </select>
+                  </div>
+                  <div class="col-xs-4">
+                     <label for="sel1">Select Floor:</label>
+                     <select class="form-control" id="floor" name="floor">
+                        <option value="Ground Floor">Ground Floor</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                     </select>
+                     <label for="pwd">Room No:</label><input class="form-control" id="roomno" name="roomno" type="text"><label for="pwd">Lab:</label><input class="form-control" id="lab" name="lab" type="text"><br>
+                  </div>
+               </div>
+               <center><input class="btn btn-primary" type="submit" value="Update"></center>
+            </form>
+         </div>
+         <div class="modal-footer"><button class="btn btn-default" type="submit" data-dismiss="modal">Cancel</button></div>
+      </div>
+   </div>
+</div>

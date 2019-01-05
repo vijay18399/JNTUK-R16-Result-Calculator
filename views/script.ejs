@@ -1,0 +1,90 @@
+      <!-- jQuery Library -->
+      <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
+      <!--materialize js-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <!--scrollbar-->
+      <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+      <!-- chartjs -->
+      <script type="text/javascript" src="vendors/chartjs/chart.min.js"></script>
+      <!-- sparkline -->
+      <script type="text/javascript" src="vendors/sparkline/jquery.sparkline.min.js"></script>
+      <!-- google map api -->
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek"></script>
+      <!--jvectormap-->
+      <script type="text/javascript" src="vendors/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+      <script type="text/javascript" src="vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+      <script type="text/javascript" src="vendors/jvectormap/vectormap-script.js"></script>
+      <!--google map-->
+      <script type="text/javascript" src="js/scripts/google-map-script.js"></script>
+      <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+      <script type="text/javascript" src="js/plugins.js"></script>
+      <!--card-advanced.js - Page specific JS-->
+      <script type="text/javascript" src="js/scripts/dashboard-analytics.js"></script>
+      <!--custom-script.js - Add your own theme custom JS-->
+      <script type="text/javascript" src="js/custom-script.js"></script>
+      <script type="text/javascript" src="js/scripts/advanced-ui-modals.js"></script>
+                <script>
+         function opentab(evt, tabname) {
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("tabcontent");
+           for (i = 0; i < tabcontent.length; i++) {
+             tabcontent[i].style.display = "none";
+           }
+           tablinks = document.getElementsByClassName("tablinks");
+           for (i = 0; i < tablinks.length; i++) {
+             tablinks[i].className = tablinks[i].className.replace(" active", "");
+           }
+           document.getElementById(tabname).style.display = "block";
+           evt.currentTarget.tabname += " active";
+         }
+         
+         // Get the element with id="defaultOpen" and click on it
+         document.getElementById("defaultOpen").click();
+        
+                
+         
+      </script>
+      <script>
+        $('.edit').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/edit_status', {
+    sno: id
+    }, function(data, xhr) {
+    var jsondata = JSON.stringify(data);
+    var data1 = JSON.parse(jsondata);
+    alert(data1[0].semester);
+    alert(data1[0].Stream);
+    alert(data1[0].Category);
+   
+   
+     
+
+$("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Category+" "+"Status");
+
+
+      $('#Status').val(data1[0].Status);
+      $('#id').val(data1[0]._id);
+
+    });
+
+    });
+    $('.del').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/remove_status', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
+            $('.delete').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/delete_record', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
+      </script>

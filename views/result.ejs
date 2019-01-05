@@ -1,54 +1,43 @@
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Get Values Of Form Elements Using jQuery</title>
-<!-- Include CSS File Here -->
-<link rel="stylesheet" href="stylesheets/style.css"/>
-<!-- Include JS File Here -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<style>
-    #hide{
-      display:none;  
-    }
-    </style>
-</head>
-<body>
-<div class="container">
-<div class="main">
-<h2>Aditya Engineering College</h2>
-<form action="/get_result" method="post">
-<!-- Text -->
-<label>HallTicket No :</label>
-    <input type="text" id="text" name="ht_no" value="" />
-<input  type="text" id="hide" name="sem" value=" <%= sem %>" />
-<input type="submit"  value="Get Result"/>
+            <section class="row tabcontent" id="tab1">
+          
+                           <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                              <div class="card-panel">
+                                 <h4 class="header center">Upload Result</h4>
+                                 <p class="gradient-45deg-light-blue-cyan white-text center">NOTE* : Here we Developed our web app take result as PDF format only It's Can't take other formats</p>
+                                 <form action="/result" method="post"  enctype='multipart/form-data'>
+             
+                                    <div class="row">
+                                       <div class="col s12">
+                                          <select name="semester" class="browser-default">
+                                             <option value="" disabled selected>Choose semster</option>
+                                         <option   value="1-1">1-1</option>
+                                         <option value="1-2">1-2</option>
+                                         <option value="2-1">2-1</option>
+                                         <option value="2-2">2-2</option>
+                                          <option value="3-1">3-1</option>
+                                           <option value="3-2">3-2</option>
+                                              <option value="4-1">4-1</option>
+                                           <option value="4-2">4-2</option>
+                                               <option value="supply">Supply</option>
+                                          </select>
+                                       </div>
+                                       <label>Select Semester</label>
+                                    </div>
+                        
+                                    <div class="row">
+                                       <div class="input-field col s12">
+                                          <i class="material-icons prefix">file_upload</i>
+                                          <input type="file" name="pdf" class="validate">
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="input-field col s12">
+                                          <button class="btn waves-effect waves-light right" type="submit" name="action">Upload
+                                          <i class="material-icons right">send</i>
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </form>
+                               </div></div>
   
-<input type="button" id="text_reset" value=" Reset "/>
-
-
-</form>
-</div>
-</div>
-</body>
-<script type="text/javascript">
-$(document).ready(function() {
-
-$('#text_reset').click(function() {
-$("#text").val('');
-});
-});
-
-</script>
-</html>
-
+                 </section>

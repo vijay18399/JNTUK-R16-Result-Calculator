@@ -16,8 +16,14 @@
       <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
       <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
       <title>Materialize - Material Design Admin Template</title>
+         <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <!-- Favicons-->
       <link rel="icon" href="https://image.flaticon.com/icons/svg/1328/1328212.svg" sizes="32x32">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- Favicons-->
       <link rel="apple-touch-icon-precomposed" href="https://image.flaticon.com/icons/svg/1328/1328212.svg">
       <!-- For iPhone -->
@@ -191,7 +197,7 @@
                                 <td><%= result.name2 %></td>
                                  <td><%= result.name3 %></td>
                                  <td><%= result.fileloc %></td>
-                                 <td>  <button class="btn small blue edit"  value="<%= result._id %>" type="submit" name="action">
+                                 <td>  <button class="waves-effect waves-light btn modal-trigger edit" href="#modal1" value="<%= result._id %>" >
                                     <i class="material-icons ">edit</i>
                                     </button>
                                  </td>
@@ -597,6 +603,16 @@
             </div>
          </div>
       </footer>
+      <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+          
       <!-- END FOOTER -->
       <!-- ================================================
          Scripts
