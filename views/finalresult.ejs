@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+      <% include head %>
+  <body class="layout-light">
+    <!-- Start Page Loading 
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+      <!-- start header nav-->
+      <div class="navbar-fixed">
+        <nav class="navbar-color">
+          <div class="nav-wrapper">
+            <ul>
+              <li >
+                <h1 class="logo-wrapper ">
+                  <a  class=" center brand-logo darken-1">
+                    <img src="http://web.aditya.ac.in/cbse/wp-content/uploads/2017/04/logo-SMALL.png"  alt="materialize logo">
+                    <span class="center logo-text hide-on-med-and-down">Aditya Results</span>
+                  </a>
+                </h1>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+      <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START MAIN -->
+    <main>
+
+
+            <!-- Scaled in -->
+
+          <div id="bordered-table card">
+            
+                            <h4 class=" center"> <%= Semester %> Result</h4>
+                <div class="col s12">
+
+                  <p id="message" class=" white-text center"</p>
+                   
+                </div>
+                <div class="col s12">
+                  <table id="myTable" class="bordered">
+                    <thead>
+                      <tr>
+                        <th data-field="id">Htno</th>
+                        <th data-field="name">Subcode</th>
+                        <th data-field="price">Subname</th>
+                        <th data-field="total">Grade</th>
+                        <th data-field="status">Credits</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         <% results.forEach(function(results) { %>  
+                      <tr>
+                        <td><%= results.Htno %></td>
+                        <td><%= results.Subcode %></td>
+                        <td><%= results.Subname %></td>
+                        <td><%= results.Grade %></td>
+                        <td><%= results.Credits %></td>
+                      </tr>    
+                       <% }); %>  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+      <!-- END WRAPPER -->
+</main>
+
+
+    <!-- END MAIN -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START FOOTER -->
+  
+    <!-- END FOOTER -->
+      <% include script %>
+  </body>
+</html>

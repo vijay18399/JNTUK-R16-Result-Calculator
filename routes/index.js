@@ -4,6 +4,8 @@ var monk=require('monk');
 var db=monk('localhost:27017/exam');
 var admin=db.get('admin');
 var status=db.get('status');
+var messages=db.get('messages');
+var schedule=db.get('schedule');
 var resultrecords=db.get('resultrecords');
 var pdf2table = require('pdf2table');
 var fs = require('fs');
@@ -99,14 +101,17 @@ router.get('/home', function(req, res, next) {
   if(req.session && req.session.user){
     res.locals.user = req.session.user;
     console.log(req.session.user._id);
- status.find({},function(err,docs){
-         console.log(docs);
-        res.locals.status = docs;
- 
+ status.find({},function(err,status){
+   schedule.find({},function(err,schedule){
+    messages.find({},function(err,messages){    
+        res.locals.status = status;
+         res.locals.schedule = schedule;
+      res.locals.messages = messages;
+
 
  
      res.render('home');
-     }); 
+     });  }); });
   }
   else{
     req.session.reset();
@@ -119,8 +124,34 @@ router.get('/home', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+
+router.post('/myresult', function (req, res) {
+  console.log(req.body.ht_no);
+console.log(req.body.Semester);
+  var ht_no = req.body.ht_no;
+var Semester=req.body.Semester;
+    data={
+     "Htno": ht_no  ,
+        "Semester" : Semester.trim()
+    }
+    console.log(data);
+resultrecords.find(data, function (err, results) {
+    console.log(results);
+    res.render('finalresult', {
+      'results': results,'Semester':Semester
+    });
+  });
+});
 router.get('/exam', function(req, res, next) {
+ status.find({},function(err,status){
+   schedule.find({},function(err,schedule){
+    messages.find({},function(err,messages){    
+        res.locals.status = status;
+         res.locals.schedule = schedule;
+      res.locals.messages = messages;
   res.render('portal');
+
+}); }); });
 });
 router.get('/home', function(req, res, next) {
   res.render('home');
@@ -128,6 +159,35 @@ router.get('/home', function(req, res, next) {
 router.get('/@18399', function(req, res, next) {
   res.render('register');
 });
+router.get('/1-1', function(req, res, next) {
+  res.render('getresult',{Semester:'1-1'});
+});
+router.get('/1-2', function(req, res, next) {
+  res.render('getresult',{Semester:'1-2'});
+});
+router.get('/2-1', function(req, res, next) {
+  res.render('getresult',{Semester:'2-1'});
+});
+router.get('/2-2', function(req, res, next) {
+  res.render('getresult',{Semester:'2-2'});
+});
+router.get('/3-1', function(req, res, next) {
+  res.render('getresult',{Semester:'3-1'});
+});
+router.get('/3-2', function(req, res, next) {
+  res.render('getresult',{Semester:'3-2'});
+});
+router.get('/4-1', function(req, res, next) {
+  res.render('getresult',{Semester:'4-1'});
+});
+router.get('/4-2', function(req, res, next) {
+  res.render('getresult',{Semester:'4-2'});
+});
+
+router.get('/supply', function(req, res, next) {
+  res.render('getresult',{Semester:'supply'});
+});
+
 router.post('/register',function(req,res){
     var data={ fullname:req.body.fullname,
     	         username:req.body.username,
@@ -192,18 +252,49 @@ router.post('/update_status', function(req, res) {
 });
 
 //schedule
-router.post('/schedule', upload.single('image'), function(req, res) {
+router.post('/schedule', upload.single('attachment'), function(req, res) {
   
     var data = {
         semester : req.body.semester,
          Stream : req.body.Stream,
+         examtype : req.body.examtype,
           Category : req.body.Category,
-          Status : req.body.Status
-      
+          Status : req.body.Status,
+      file :'results/' + req.file.originalname
     
     }
-    status.insert(data, function(err,data){
+    schedule.insert(data, function(err,data){
     res.redirect('/home');
+    });
+});
+
+router.post('/remove_schedule', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    schedule.remove({"_id":id}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
+    });
+});
+//contact Us
+router.post('/message', function(req, res) {
+  
+    var data = {
+        name : req.body.name,
+         email : req.body.email,
+          message : req.body.message
+ 
+    }
+    messages.insert(data, function(err,data){
+    res.redirect('/exam');
+    });
+});
+router.post('/remove_message', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    messages.remove({"_id":id}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
     });
 });
 

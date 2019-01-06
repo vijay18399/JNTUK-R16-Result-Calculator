@@ -1,38 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
-    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
-    <title>Exam Portal</title>
-    <!----------------->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Favicons-->
-    <link rel="icon" href="https://cdn-1.us.xmsymphony.com/94011972e3b5577f54590f6ea794e4e4/contents/ckfinder/images/logos/xm_logo.png" sizes="32x32">
-    <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="https://cdn-1.us.xmsymphony.com/94011972e3b5577f54590f6ea794e4e4/contents/ckfinder/images/logos/xm_logo.png">
-    <!-- For iPhone -->
-    <meta name="msapplication-TileColor" content="#00bcd4">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
-    <!-- For Windows Phone -->
-    <!-- CORE CSS-->
-    <link href="css/themes/fixed-menu/materialize.css" type="text/css" rel="stylesheet">
-    <link href="css/themes/fixed-menu/style.css" type="text/css" rel="stylesheet">
-    <!-- Custome CSS-->
-    <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
-    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="vendors/prism/prism.css" type="text/css" rel="stylesheet">
-    <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-    <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
-
-  </head>
+      <% include head %>
   <body class="layout-light">
-    <!-- Start Page Loading -->
+    <!-- Start Page Loading 
     <div id="loader-wrapper">
       <div id="loader"></div>
       <div class="loader-section section-left"></div>
@@ -73,36 +44,38 @@
           <ul id="slide-out" class="side-nav fixed leftside-navigation">
 
             <li>
-              <a href="changelogs.html">
+              <a onclick="opentab(event, 'tab1')" id="defaultOpen" >
                 <i class="material-icons">notifications</i>
                 <span class="nav-text">Exam Updates</span>
               </a>
             </li>
             <li>
-              <a href="../documentation" target="_blank">
+              <a onclick="opentab(event, 'tab2')"  >
                 <i class="material-icons">event</i>
                 <span class="nav-text">Exam scedules</span>
               </a>
             </li>
             <li>
-              <a href="https://pixinvent.ticksy.com" target="_blank">
+              <a onclick="opentab(event, 'tab3')" >
                 <i class="material-icons">widgets</i>
                 <span class="nav-text">Technologies </span>
               </a>
             </li>
             <li>
-              <a href="https://pixinvent.ticksy.com" target="_blank">
+              <a onclick="opentab(event, 'tab4')"  >
                 <i class="material-icons">message</i>
                 <span class="nav-text">Contact Us </span>
               </a>
             </li>
                    <li>
-              <a href="https://pixinvent.ticksy.com" target="_blank">
+              <a onclick="opentab(event, 'tab5')"  >
                 <i class="material-icons">explore</i>
                 <span class="nav-text">Our projects </span>
               </a>
             </li>
           </ul>
+           
+           
           <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating green btn-medium waves-effect waves-light hide-on-large-only">
             <i class="material-icons">menu</i>
           </a>
@@ -110,290 +83,18 @@
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTENT -->
-        <section id="content">
-          <!--breadcrumbs start-->
-          <div id="breadcrumbs-wrapper">
-            <!-- Search for small screen -->
-            <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title">Our Projects</h5>
-                  <ol class="breadcrumbs">
-                    <li><a href="index.html">Exam portal</a></li>
-                   
-                    <li class="active">Our Projects</li>
-                  </ol>
-                </div>
-   
-              </div>
-            </div>
-          </div>
-          <div id="ecommerce-offer">
-                <div class="row">
-                  <div class="col s12 m3">
-                    <div class="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3">
-                      <div class="card-content center">
-                        <img src="https://www.uapinc.com/wp-content/uploads/2015/02/tw1.png" class="width-40 border-round z-depth-5">
-                        <h5 class="white-text lighten-4">Aditya Skills</h5>
-                        <p class="white-text lighten-4">status :Work In progress</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col s12 m3">
-                    <div class="card gradient-shadow gradient-45deg-red-pink border-radius-3">
-                      <div class="card-content center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cc.logo.white.svg/1048px-Cc.logo.white.svg.png" class="width-40 border-round z-depth-5">
-                        <h5 class="white-text lighten-4">College Chat</h5>
-                        <p class="white-text lighten-4">Status---> Not Started</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col s12 m3">
-                    <div class="card gradient-shadow gradient-45deg-amber-amber border-radius-3">
-                      <div class="card-content center">
-                        <img src="https://cdn-1.us.xmsymphony.com/94011972e3b5577f54590f6ea794e4e4/contents/ckfinder/images/logos/xm_logo.png" class="width-40 border-round z-depth-5">
-                        <h5 class="white-text lighten-4">Exam Portal</h5>
-                        <p class="white-text lighten-4">Status -->Released</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col s12 m3">
-                    <div class="card gradient-shadow gradient-45deg-green-teal border-radius-3">
-                      <div class="card-content center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Canadian_national_logo.svg/1200px-Canadian_national_logo.svg.png" class="width-40 border-round z-depth-5">
-                        <h5 class="white-text lighten-4">College News</h5>
-                        <p class="white-text lighten-4">Status -->Willl Release soon</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-               <div class="divider"></div>
-          <!--projects  end-->
-           <div class="container">
-            <div class="section">
-                    <div id="breadcrumbs-wrapper">
-            <!-- Search for small screen -->
-            <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title">Exam Updates</h5>
-                  <ol class="breadcrumbs">
-                    <li><a href="/">Exam portal</a></li>
-                   
-                    <li class="active">Exam Updates</li>
-                  </ol>
-                </div>
-   
-              </div>
-            </div>
-          </div>
-
-
-          </div>
-              <div id="work-collections">
-              <div class="row">
-                <div class="col s12 m12 l12">
-                  <ul id="projects-collection" class="collection z-depth-1">
-                    <li class="collection-item avatar">
-                      <i class="material-icons cyan circle">notifications_none</i>
-                      <h6 class="collection-header m-0">Exam Updates</h6>
-                      <p>See the status</p>
-                    </li>
-                    <li class="collection-item">
-                      <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">3-1 Regular Semester Result</p>
-                          <p class="collections-content">Btech</p>
-                        </div>
-                        <div class="col s6">
-                          <span class="task-cat cyan">No Information Found</span>
-                        </div>
-              
-                      </div>
-                    </li>
-                    <li class="collection-item">
-               <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">4-1 Regular Semester Result</p>
-                          <p class="collections-content">Btech</p>
-                        </div>
-                        <div class="col s6">
-                          <span class="task-cat cyan">Result is out</span>
-                        </div>
-              
-                      </div>
-                    </li>
-                    <li class="collection-item">
-               <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">1-1 Regular Semester Result</p>
-                          <p class="collections-content">Pharamacy</p>
-                        </div>
-                        <div class="col s6">
-                          <span class="task-cat cyan">Phase Completed</span>
-                        </div>
-              
-                      </div>
-                    </li>
-
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-
-            </div>
-          </div>
-     <div class="container">
-            <div class="section">
-
-                            <div id="work-collections">
-              <div class="row">
-                <div class="col s12 m12 l12">
-                  <ul id="projects-collection" class="collection z-depth-1">
-                    <li class="collection-item avatar">
-                      <i class="material-icons red circle">event_note</i>
-                      <h6 class="collection-header m-0">Xam Schedules</h6>
-                      <p> Acadamic </p>
-                    </li>
-                    <li class="collection-item">
-                      <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">3-1  Semester Mid Schedule</p>
-                          <p class="collections-content">Btech</p>
-                        </div>
-                        <div class="col s6">
-                          <a  href="" class=" btn task-cat red">download</a>
-                        </div>
-              
-                      </div>
-                    </li>
-                    <li class="collection-item">
-                      <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">3-1  Semester Mid Schedule</p>
-                          <p class="collections-content">Btech</p>
-                        </div>
-                        <div class="col s6">
-                          <a  href="" class=" btn task-cat red">download</a>
-                        </div>
-              
-                      </div>
-                    </li>
-                    <li class="collection-item">
-                      <div class="row">
-                        <div class="col s6">
-                          <p class="collections-title">3-1  Semester Mid Schedule</p>
-                          <p class="collections-content">Btech</p>
-                        </div>
-                        <div class="col s6">
-                          <a  href="" class=" btn task-cat red">download</a>
-                        </div>
-              
-                      </div>
-                    </li>
-
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-</div></div>
-
-  <div class="container">
-            <div class="section">
-<div class="col s12">
-   <div class="row">
-      <div class="col s12 m6 l3">
-         <div class="card gradient-45deg-deep-orange-orange gradient-shadow min-height-100 white-text">
-            <div class="padding-4">
-               <div class=" center col s12 m12 l12">
-                 <i style="font-size: 100px;" class=" devicon-mongodb-plain-wordmark colored" ></i>
-                  <p> DataBase</p>
-               </div>
-       
-            </div>
-         </div>
-      </div>
-      <div class="col s12 m6 l3">
-         <div class="card gradient-45deg-blue-indigo gradient-shadow min-height-100 white-text">
-            <div class="padding-4">
-              <div class=" center col s12 m12 l12">
-                 <i style="font-size: 100px;" class="devicon-nodejs-plain-wordmark"></i>
-                  <p>Server</p>
-               </div>
-
-            </div>
-         </div>
-      </div>
-      <div class="col s12 m6 l3">
-         <div class="card gradient-45deg-purple-deep-orange gradient-shadow min-height-100 white-text">
-            <div class="padding-4">
-              <div class=" center col s12 m12 l12">
-                 <i style="font-size: 100px;" class="devicon-express-original-wordmark   colored"></i>
-                  <p>Middleware</p>
-               </div>
-
-            </div>
-         </div>
-      </div>
-      <div class="col s12 m6 l3">
-         <div class="card gradient-45deg-purple-deep-purple gradient-shadow min-height-100 white-text">
-            <div class="padding-4">
-              <div class=" center col s12 m12 l12">
-              <img src="https://seeklogo.com/images/M/materialize-logo-0FCAD8A6F8-seeklogo.com.png" height="90px">
-                  <p>Materialize CSS</p>
-               </div>
-
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-</div></div>
-          <!--start container-->
-          <div class="container">
-            <div class="section">
-
-            <!-- Floating Action Button -->
-            <div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
-              <a class="btn-floating btn-large">
-                <i class="material-icons">add</i>
-              </a>
-              <ul>
-                <li>
-                  <a href="css-helpers.html" class="btn-floating blue">
-                    <i class="material-icons">help_outline</i>
-                  </a>
-                </li>
-                <li>
-                  <a href="cards-extended.html" class="btn-floating green">
-                    <i class="material-icons">widgets</i>
-                  </a>
-                </li>
-                <li>
-                  <a href="app-calendar.html" class="btn-floating amber">
-                    <i class="material-icons">today</i>
-                  </a>
-                </li>
-                <li>
-                  <a href="app-email.html" class="btn-floating red">
-                    <i class="material-icons">mail_outline</i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- Floating Action Button -->
-          </div>
-          <!--end container-->
+        <section>
+          <% include contact %>
+          <div class="divider"></div>  
+          <% include examschedules %>
+          <div class="divider"></div>
+          <% include tech %>
+          <div class="divider"></div>    
+          <% include examupdates %>
+          <div class="divider"></div>
+          <% include projects %>
+          <div class="divider"></div>
+         
         </section>
         <!-- END CONTENT -->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -404,32 +105,8 @@
     <!-- END MAIN -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     <!-- START FOOTER -->
-    <footer class="page-footer">
-      <div class="footer-copyright">
-        <div class="container">
-          <span>Copyright ©
-            <script type="text/javascript">
-              document.write(new Date().getFullYear());
-            </script> <a href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span>
-          <span class="right hide-on-small-only"> Design and Developed by <a href="https://pixinvent.com/">PIXINVENT</a></span>
-        </div>
-      </div>
-    </footer>
+      <% include footer %>
     <!-- END FOOTER -->
-    <!-- ================================================
-        Scripts
-        ================================================ -->
-    <!-- jQuery Library -->
-    <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
-    <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--scrollbar-->
-    <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <!--prism -->
-    <script type="text/javascript" src="vendors/prism/prism.js"></script>
-    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
+      <% include script %>
   </body>
 </html>

@@ -1,44 +1,26 @@
 <section class="row tabcontent" id="tab6" >
+
                                <table class="striped " >
                                     <thead>
                                        <tr>
                                           <th>Name</th>
-                                          <th>Item Name</th>
-                                          <th>Item Price</th>
+                                          <th>Email</th>
+                                          <th>Message</th>
+                                          <th>Delete</th>
                                        </tr>
                                     </thead>
                                     <tbody>
+                                        <% messages.forEach(function(messages) { %>   
                                        <tr>
-                                          <td>Alvin</td>
-                                          <td> <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
-                                          </td>
-                                          <td>  <button class="btn small red" type="submit" name="action">
+                                          <td><%= messages.name %></td>
+                                      <td><%= messages.email %></td>
+                                      <td><%= messages.message %></td>
+                                          <td>  <button class="btn small deletem red" value=<%= messages._id %> type="submit" name="action">
                                              <i class="material-icons ">delete</i>
                                              </button>
                                           </td>
                                        </tr>
-                                       <tr>
-                                          <td>Alan</td>
-                                          <td>  <button class="btn small blue" type="submit" name="action">
-                                             <i class="material-icons ">edit</i>
-                                             </button>
-                                          </td>
-                                          <td>  <button class="btn small red" type="submit" name="action">
-                                             <i class="material-icons ">delete</i>
-                                             </button>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <td>Jonathan</td>
-                                          <td>  <button class="waves-effect waves-light btn modal-trigger edit" href="#modal1" value="ok" >
-                                             <i class="material-icons ">edit</i>
-                                             </button>
-                                          </td>
-                                          <td>  <button class="btn small red" type="submit" name="action">
-                                             <i class="material-icons ">delete</i>
-                                             </button>
-                                          </td>
-                                       </tr>
+                                        <% }); %>  
                                     </tbody>
                                  </table>
                              

@@ -1,0 +1,57 @@
+<section class="row tabcontent" id="tab1" >
+            <% include results %>
+           <div class="container">
+            <div class="section">
+                    <div id="breadcrumbs-wrapper">
+
+            <div class="container">
+              <div class="row">
+                <div class="col s10 m6 l6">
+                  <h5 class="breadcrumbs-title">Exam Updates</h5>
+                  <ol class="breadcrumbs">
+                    <li><a href="/">Exam portal</a></li>
+                   
+                    <li class="active">Exam Updates</li>
+                  </ol>
+                </div>
+   
+              </div>
+            </div>
+          </div>
+
+
+          </div>
+  
+              <div id="work-collections">
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <ul id="projects-collection" class="collection z-depth-1">
+                    <li class="collection-item avatar">
+                      <i class="material-icons cyan circle">notifications_none</i>
+                      <h6 class="collection-header m-0">Exam Updates</h6>
+                      <p>See the status</p>
+                    </li>
+                     <% status.forEach(function(status) { %>  
+                    <li class="collection-item">
+                      <div class="row">
+                        <div class="col s6">
+                          <p class="collections-title"> <%= status.Category %> <%= status.semester %> Semester Result</p>
+                          <p class="collections-content"><%= status.Stream %></p>
+                        </div>
+                        <div class="col s6">
+                          <span class="task-cat cyan"><%= status.Status %> </span>
+                        </div>
+              
+                      </div>
+                    </li>
+  <% }); %>  
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+
+            </div>
+            </section>

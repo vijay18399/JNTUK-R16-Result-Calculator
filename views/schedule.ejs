@@ -1,4 +1,4 @@
-            <section class="row tabcontent" id="tab3" >
+             <section class="row tabcontent" id="tab3" >
           
                            <div class="  col s12 m8 l8  offset-l2 offset-m2">
                               <div class="card-panel">
@@ -55,7 +55,7 @@
                                     <div class="row">
                                        <div class="input-field col s12">
                                           <i class="material-icons prefix">file_upload</i>
-                                          <input id="attachment" type="file" class="validate">
+                                          <input id="attachment" type="file" name="attachment" class="validate">
                                        </div>
                                     </div>
                                     <div class="row">
@@ -66,5 +66,33 @@
                                     </div>
                                  </form>
                                </div></div>
+                                         <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                              <div class=" card card-panel">
+                             <table class="striped col s12" >
+                                    <thead>
+                                       <tr>
+                                          <th>Semester & </th>
+                                          <th>Stream</th>
+                                          <th>exam type</th>
+                                          <th>file</th>
+                                          <th>Delete</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                     <% schedule.forEach(function(schedule) { %>   
+                                       <tr>
+                                          <td><%= schedule.semester %>  </td>
+                                          <td> <%= schedule.Stream %> </td>
+                                          <td><%= schedule.examtype %> </td>
+                                     
+                                         <td><img class="materialboxed"  width="90"   src="<%= schedule.file %>" height="50px" > </td>
+                                           <td> <button class="delsch red waves-effect waves-light btn "  value=<%= schedule._id %> > <i class="material-icons ">delete</i></button>
+                                          </td>
+                                       </tr>
+                                             <% }); %>   
+                                    </tbody>
+                                 </table>
+                               </div>
+                               </div>
   
                  </section>
