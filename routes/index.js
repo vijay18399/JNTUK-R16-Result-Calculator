@@ -119,6 +119,9 @@ router.get('/home', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+router.get('/exam', function(req, res, next) {
+  res.render('portal');
+});
 router.get('/home', function(req, res, next) {
   res.render('home');
 });
