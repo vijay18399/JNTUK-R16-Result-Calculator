@@ -3,8 +3,11 @@
 
                            <div class="  col s12 m8 l8  offset-l2 offset-m2">
                               <div class="card-panel">
-                                 <h4 class="header center"> Result Urls</h4>
-                                 <p class="gradient-45deg-light-blue-cyan white-text center">NOTE* : Make sure that urls is working fine</p>
+                                   <div class="divider"></div>
+                                 <h5 class="header cyan-text center">  Result Urls</h5>
+                                 <div class="divider"></div>
+                                 
+                                 <p class="gradient-45deg-light-blue-cyan white-text center">NOTE* : Make sure that url is working fine before adding</p>
                                   <form  action="/add_url" method="post">
          <div class="row">
             <div class="col s12 l12">
@@ -53,9 +56,9 @@
     <div class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <i class="material-icons prefix">textsms</i>
+          <i class="material-icons prefix">call_missed_outgoing</i>
           <input type="text"  name="url" >
-          <label for="autocomplete-input">Url</label>
+          <label >Url</label>
         </div>
       </div>
     </div>
@@ -71,6 +74,8 @@
                                  </div>
                                  </div>
                                  <div class="divider"> </div>
+                                 <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                              <div class=" card card-panel">
                                  <table class="striped card " >
                                     <thead>
                                        <tr>
@@ -88,7 +93,7 @@
                                       <td><%= urls.Category %></td>
                                       <td><%= urls.Stream %></td>
                                       <td><a href="<%= urls.url %>" class="btn">View</a></td>
-                                          <td>  <button class="btn small deletem red" value=<%= urls._id %> type="submit" name="action">
+                                          <td>  <button class="btn small deleter red" value=<%= urls._id %> type="submit" name="action">
                                              <i class="material-icons ">delete</i>
                                              </button>
                                           </td>
@@ -96,6 +101,8 @@
                                         <% }); %>  
                                     </tbody>
                                  </table>
+                                 </div>
+                                 </div>
                                 
 </section>
  

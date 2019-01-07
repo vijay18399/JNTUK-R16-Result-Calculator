@@ -87,6 +87,15 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
     location.reload();
     });
     });
+          $('.deleter').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/remove_url', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
       $('.deletem').click(function() {
     var id = $(this).val();
     alert(id);
@@ -147,7 +156,7 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
         } else if (parseInt(count) > 0) {
             document.getElementById("message").innerHTML = "Sorry You have " + count + " Backlogs";
               element = document.getElementById("message");
-            name=" red darken-4";
+            name="#e53935 red darken-1";
             arr = element.className.split(" ");
              if (arr.indexOf(name) == -1) {
             element.className += " " + name;

@@ -20,9 +20,9 @@
             <ul>
               <li >
                 <h1 class="logo-wrapper ">
-                  <a  class=" center brand-logo darken-1">
-                    <img src="http://web.aditya.ac.in/cbse/wp-content/uploads/2017/04/logo-SMALL.png"  alt="materialize logo">
-                    <span class="center logo-text hide-on-med-and-down">Aditya Results</span>
+             <a  class=" center brand-logo darken-1">
+                    <img src="https://www.vanhool.be/assets/images/logo-autocars-ex.png"  alt="materialize logo">
+                  <span class="hide-on-med-and-down blue-text"> <span class="grey-text">Exam</span> Portal</span>
                   </a>
                 </h1>
               </li>
@@ -41,16 +41,18 @@
 
             <!-- Scaled in -->
 
-          <div id="bordered-table card">
-            
-                            <h4 class=" center"> <%= Semester %> Result</h4>
-                <div class="col s12">
+          <div id="striped-table ">
+             <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5><%= Semester %> Result </h5></div>
+                            
+                <div class="col s12 ">
 
                   <p id="message" class=" white-text center"</p>
                    
                 </div>
-                <div class="col s12">
-                  <table id="myTable" class="bordered">
+                <div >
+                  <div class="  col s12 m8 l8  offset-l2 offset-m2">
+                              <div class=" card card-panel">
+                  <table id="myTable" class="striped card " >
                     <thead>
                       <tr>
                         <th data-field="id">Htno</th>
@@ -72,6 +74,8 @@
                        <% }); %>  
                     </tbody>
                   </table>
+                </div>
+              </div>
                 </div>
               </div>
 

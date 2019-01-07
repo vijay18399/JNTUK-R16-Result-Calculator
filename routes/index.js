@@ -39,7 +39,7 @@ router.post('/login',function(req,res){
       delete docs.password;
         req.session.user=docs;
         console.log('success');
-        res.redirect('/home');
+        res.redirect('/admin');
     }
     else{
       console.log('fail');
@@ -92,13 +92,13 @@ console.log(moment().format('DD/MM/YYYY'));
 
     }
   });
-  res.redirect('/home');
+  res.redirect('/admin');
 
 }); });
 
 
 
-router.get('/home', function(req, res, next) {
+router.get('/admin', function(req, res, next) {
   if(req.session && req.session.user){
     res.locals.user = req.session.user;
     console.log(req.session.user._id);
@@ -117,13 +117,13 @@ router.get('/home', function(req, res, next) {
   }
   else{
     req.session.reset();
-    res.redirect('/');
+    res.redirect('/adminlogin');
   }
 });
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/adminlogin', function(req, res, next) {
   res.render('index');
 });
 
@@ -144,7 +144,7 @@ resultrecords.find(data, function (err, results) {
     });
   });
 });
-router.get('/exam', function(req, res, next) {
+router.get('/', function(req, res, next) {
  status.find({},function(err,status){
    schedule.find({},function(err,schedule){
     messages.find({},function(err,messages){   
@@ -207,7 +207,7 @@ router.post('/register',function(req,res){
     console.log(docs);
 
   }
-  res.redirect('/')
+  res.redirect('/adminlogin')
     
 });
 });
@@ -224,7 +224,7 @@ router.post('/status', upload.single('image'), function(req, res) {
     
     }
     status.insert(data, function(err,data){
-    res.redirect('/home');
+    res.redirect('/admin');
     });
 });
 router.post('/edit_status', function(req, res) {
@@ -249,7 +249,7 @@ router.post('/update_status', function(req, res) {
     Status : req.body.Status     }
   status.update({"_id":req.body.id},{$set:data}, function(err,docs){
     console.log(docs);
-    res.redirect('/home');
+    res.redirect('/admin');
   });
 });
 
@@ -266,7 +266,7 @@ router.post('/schedule', upload.single('attachment'), function(req, res) {
     
     }
     schedule.insert(data, function(err,data){
-    res.redirect('/home');
+    res.redirect('/admin');
     });
 });
 
@@ -288,7 +288,7 @@ router.post('/message', function(req, res) {
  
     }
     messages.insert(data, function(err,data){
-    res.redirect('/exam');
+    res.redirect('/');
     });
 });
 router.post('/remove_message', function(req, res) {
@@ -312,7 +312,7 @@ router.post('/add_url', function(req, res) {
     
     }
     urls.insert(data, function(err,data){
-    res.redirect('/home');
+    res.redirect('/admin');
     });
 });
 
@@ -329,7 +329,7 @@ router.post('/delete_record', function(req, res) {
     console.log(req.body.sno);
     var id = req.body.sno;
     resultrecords.remove({"Semester":id}, function(err,docs){
-   res.redirect('/home');
+   res.redirect('/admin');
     });
 });
 module.exports = router;

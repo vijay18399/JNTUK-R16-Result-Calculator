@@ -1,36 +1,8 @@
 <section class="row tabcontent" id="tab1" >
             <% include results %>
            <div class="container">
-            <div class="section">
-                    <div id="breadcrumbs-wrapper">
+           
 
-            <div class="container">
-              <div class="row">
-                <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title">Exam Updates</h5>
-                  <ol class="breadcrumbs">
-                    <li><a href="/">Exam portal</a></li>
-                   
-                    <li class="active">Exam Updates</li>
-                  </ol>
-                </div>
-   
-              </div>
-            </div>
-          </div>
-
-
-          </div>
-          <div id="live results links">
-                  
-                  <div class="col s12">
-                   <% urls.forEach(function(urls) { %>   
-                    <div class="grid-example col s12 teal lighten-2">
-                      <span class="flow-text"><%= urls.semester %> <%= urls.Category %>  <%= urls.Stream %>   Result is out now <a href="<%= urls.url %>" class="btn animated infinite rubberBand">Click here</a> for Result </span>
-                    </div>
-                      <% }); %>
-                  </div>
-          </div>
               <div id="work-collections">
               <div class="row">
                 <div class="col s12 m12 l12">
@@ -40,7 +12,21 @@
                       <h6 class="collection-header m-0">Exam Updates</h6>
                       <p>See the status</p>
                     </li>
-                     <% status.forEach(function(status) { %>  
+                      <% urls.forEach(function(urls) { %> 
+                    <li class="collection-item">
+                      <div class="row">
+                        <div class="col s6">
+                          <p class="collections-title"> <%= urls.Stream %> <%= urls.semester %> Sem  <%= urls.Category %>    Result is out now </p>
+                          
+                        </div>
+                        <div class="col s6">
+                          <span class="task-cat "><a href="<%= urls.url %>" class="btn grey animated infinite rubberBand">Click here</a> </span>
+                        </div>
+              
+                      </div>
+                    </li>
+                    <% }); %> 
+                    <% status.forEach(function(status) { %>  
                     <li class="collection-item">
                       <div class="row">
                         <div class="col s6">
@@ -53,7 +39,7 @@
               
                       </div>
                     </li>
-  <% }); %>  
+                    <% }); %>  
 
                   </ul>
                 </div>
