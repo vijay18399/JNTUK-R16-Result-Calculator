@@ -21,7 +21,16 @@
 
 
           </div>
-  
+          <div id="live results links">
+                  
+                  <div class="col s12">
+                   <% urls.forEach(function(urls) { %>   
+                    <div class="grid-example col s12 teal lighten-2">
+                      <span class="flow-text"><%= urls.semester %> <%= urls.Category %>  <%= urls.Stream %>   Result is out now <a href="<%= urls.url %>" class="btn animated infinite rubberBand">Click here</a> for Result </span>
+                    </div>
+                      <% }); %>
+                  </div>
+          </div>
               <div id="work-collections">
               <div class="row">
                 <div class="col s12 m12 l12">

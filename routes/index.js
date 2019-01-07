@@ -4,6 +4,7 @@ var monk=require('monk');
 var db=monk('localhost:27017/exam');
 var admin=db.get('admin');
 var status=db.get('status');
+var urls=db.get('urls');
 var messages=db.get('messages');
 var schedule=db.get('schedule');
 var resultrecords=db.get('resultrecords');
@@ -104,14 +105,15 @@ router.get('/home', function(req, res, next) {
  status.find({},function(err,status){
    schedule.find({},function(err,schedule){
     messages.find({},function(err,messages){    
+         urls.find({},function(err,urls){ 
         res.locals.status = status;
          res.locals.schedule = schedule;
       res.locals.messages = messages;
-
+     res.locals.urls = urls;
 
  
      res.render('home');
-     });  }); });
+     });  }); }); });
   }
   else{
     req.session.reset();
@@ -145,17 +147,17 @@ resultrecords.find(data, function (err, results) {
 router.get('/exam', function(req, res, next) {
  status.find({},function(err,status){
    schedule.find({},function(err,schedule){
-    messages.find({},function(err,messages){    
+    messages.find({},function(err,messages){   
+     urls.find({},function(err,urls){  
         res.locals.status = status;
          res.locals.schedule = schedule;
       res.locals.messages = messages;
+      res.locals.urls = urls;
   res.render('portal');
 
-}); }); });
+}); }); }); });
 });
-router.get('/home', function(req, res, next) {
-  res.render('home');
-});
+
 router.get('/@18399', function(req, res, next) {
   res.render('register');
 });
@@ -297,7 +299,31 @@ router.post('/remove_message', function(req, res) {
       res.send(docs);
     });
 });
+//urls
+router.post('/add_url', function(req, res) {
+  
+    var data = {
+        semester : req.body.semester,
+         Stream : req.body.Stream,
+ 
+          Category : req.body.Category,
+          url : req.body.url
 
+    
+    }
+    urls.insert(data, function(err,data){
+    res.redirect('/home');
+    });
+});
+
+router.post('/remove_url', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    urls.remove({"_id":id}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
+    });
+});
 //delte records
 router.post('/delete_record', function(req, res) {
     console.log(req.body.sno);
