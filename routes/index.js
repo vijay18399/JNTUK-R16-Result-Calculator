@@ -54,6 +54,8 @@ console.log(moment().format('DD/MM/YYYY'));
   console.log(req.file.originalname);
   var date=moment().format('DD/MM/YYYY');
   var semester = req.body.semester;
+   var Category = req.body.Category;
+    var creditsum = req.body.creditsum;
   pdfloc = './public/results/' + req.file.originalname;
   //start
   fs.readFile(pdfloc, function (err, buffer) {
@@ -78,6 +80,8 @@ console.log(moment().format('DD/MM/YYYY'));
               "Grade": rows[i][3],
               "Credits": rows[i][4],
                "Semester":semester,
+               "Category":Category,
+               "creditsum": creditsum,
                 "Date":date
             }
           
@@ -132,13 +136,16 @@ router.post('/myresult', function (req, res) {
 console.log(req.body.Semester);
   var ht_no = req.body.ht_no;
 var Semester=req.body.Semester;
+var Category=req.body.Category;
     data={
      "Htno": ht_no  ,
-        "Semester" : Semester.trim()
+        "Semester" : Semester.trim(),
+
+        "Category":Category.trim()
     }
     console.log(data);
 resultrecords.find(data, function (err, results) {
-    console.log(results);
+
     res.render('finalresult', {
       'results': results,'Semester':Semester
     });
@@ -162,33 +169,54 @@ router.get('/@18399', function(req, res, next) {
   res.render('register');
 });
 router.get('/1-1', function(req, res, next) {
-  res.render('getresult',{Semester:'1-1'});
+  res.render('getresult',{Semester:'1-1',Category:'Regular'});
 });
 router.get('/1-2', function(req, res, next) {
-  res.render('getresult',{Semester:'1-2'});
+  res.render('getresult',{Semester:'1-2',Category:'Regular'});
 });
 router.get('/2-1', function(req, res, next) {
-  res.render('getresult',{Semester:'2-1'});
+  res.render('getresult',{Semester:'2-1',Category:'Regular'});
 });
 router.get('/2-2', function(req, res, next) {
-  res.render('getresult',{Semester:'2-2'});
+  res.render('getresult',{Semester:'2-2',Category:'Regular'});
 });
 router.get('/3-1', function(req, res, next) {
-  res.render('getresult',{Semester:'3-1'});
+  res.render('getresult',{Semester:'3-1',Category:'Regular'});
 });
 router.get('/3-2', function(req, res, next) {
-  res.render('getresult',{Semester:'3-2'});
+  res.render('getresult',{Semester:'3-2',Category:'Regular'});
 });
 router.get('/4-1', function(req, res, next) {
-  res.render('getresult',{Semester:'4-1'});
+  res.render('getresult',{Semester:'4-1',Category:'Regular'});
 });
 router.get('/4-2', function(req, res, next) {
-  res.render('getresult',{Semester:'4-2'});
+  res.render('getresult',{Semester:'4-2',Category:'Regular'});
+});
+router.get('/supply1-1', function(req, res, next) {
+  res.render('getresult',{Semester:'1-1',Category:'Supply'});
+});
+router.get('/supply1-2', function(req, res, next) {
+  res.render('getresult',{Semester:'1-2',Category:'Supply'});
+});
+router.get('/supply2-1', function(req, res, next) {
+  res.render('getresult',{Semester:'2-1',Category:'Supply'});
+});
+router.get('/supply2-2', function(req, res, next) {
+  res.render('getresult',{Semester:'2-2',Category:'Supply'});
+});
+router.get('/supply3-1', function(req, res, next) {
+  res.render('getresult',{Semester:'3-1',Category:'Supply'});
+});
+router.get('/supply3-2', function(req, res, next) {
+  res.render('getresult',{Semester:'3-2',Category:'Supply'});
+});
+router.get('/supply4-1', function(req, res, next) {
+  res.render('getresult',{Semester:'4-1',Category:'Supply'});
+});
+router.get('/supply4-2', function(req, res, next) {
+  res.render('getresult',{Semester:'4-2',Category:'Supply'});
 });
 
-router.get('/supply', function(req, res, next) {
-  res.render('getresult',{Semester:'supply'});
-});
 
 router.post('/register',function(req,res){
     var data={ fullname:req.body.fullname,

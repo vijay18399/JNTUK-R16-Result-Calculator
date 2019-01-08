@@ -3,7 +3,7 @@
 
       <% include head %>
   <body class="layout-light">
-    <!-- Start Page Loading 
+    <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
       <div class="loader-section section-left"></div>
@@ -42,8 +42,8 @@
             <!-- Scaled in -->
 
           <div id="striped-table ">
-             <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5><%= Semester %> Result </h5></div>
-                            
+             <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5><%= Semester %>  Result </h5></div>
+                 <h1 id="no-record" class="white-text"></h1>           
                 <div class="col s12 ">
 
                   <p id="message" class=" white-text center"</p>
@@ -60,7 +60,7 @@
                         <th data-field="name">Subcode</th>
                         <th data-field="price">Subname</th>
                         <th data-field="total">Grade</th>
-                        <th data-field="status">Credits</th>
+                        <th data-field="status">Credits 
                       </tr>
                     </thead>
                     <tbody>
@@ -71,6 +71,7 @@
                         <td><%= results.Subname %></td>
                         <td><%= results.Grade %></td>
                         <td><%= results.Credits %></td>
+                        <td  class="hide creditsum"><%= results.creditsum %></td>
                       </tr>    
                        <% }); %>  
                     </tbody>

@@ -41,13 +41,19 @@
           <div class="row">
                 <div class="col s12 m12 offset-l2 l8">
                   <div class="card-panel">
-                    <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5>View  <%= Semester %> Result here</h5></div>
+                    <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5>View  <%= Semester %> <%= Category %> Result here</h5></div>
                     <div class="row">
                       <form class="col s12" action="/myresult" method="post">
                               <div class="row hide ">
                           <div class="input-field col s12">
                             <input value="<%= Semester %>" name="Semester" type="text">
-                            <label for="first_name">Semester</label>
+                            <label >Semester</label>
+                          </div>
+                        </div>
+                        <div class="row hide ">
+                          <div class="input-field col s12">
+                            <input value="<%= Category %>" name="Category" type="text">
+                            <label >Category</label>
                           </div>
                         </div>
                         <div class="row">

@@ -10,7 +10,7 @@
              
                                     <div class="row">
                                        <div class="col s12">
-                                          <select name="semester" class="browser-default">
+                                          <select name="semester" required class="browser-default">
                                              <option value="" disabled selected>Choose semster</option>
                                          <option   value="1-1">1-1</option>
                                          <option value="1-2">1-2</option>
@@ -20,16 +20,36 @@
                                            <option value="3-2">3-2</option>
                                               <option value="4-1">4-1</option>
                                            <option value="4-2">4-2</option>
-                                               <option value="supply">Supply</option>
+                                            
                                           </select>
                                        </div>
                                        <label>Select Semester</label>
                                     </div>
+                                             <div class="row">
+            <div class="col s12 l12">
+               <select name="Category" required class="browser-default">
+                  <option value="" disabled selected>Choose Category</option>
+                  <option   value="Regular">Regular</option>
+                  <option value="Supply">Supply</option>
+               </select>
+            </div>
+            <label>Select Category</label>
+         </div>
+
+    <div class="row">
+    <div class="input-field col s12">
+
+    <input type="number" name="creditsum" required >
+  
+    </div>
+      <label >Credits Sum</label>
+    </div>
+
                         
                                     <div class="row">
                                        <div class="input-field col s12">
                                           <i class="material-icons prefix">file_upload</i>
-                                          <input type="file" name="pdf" class="validate">
+                                          <input required type="file" name="pdf" class="validate">
                                        </div>
                                        <label>Select Pdf document</label>
                                     </div>

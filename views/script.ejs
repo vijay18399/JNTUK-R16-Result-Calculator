@@ -120,7 +120,9 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
 
 
     <script type="text/javascript">
+
         var x = document.getElementById("myTable").rows.length - 1;
+       
         var count = getcount(x);
         function getcount(x) {
         var count = 0;
@@ -144,7 +146,7 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
         }
        
         if (parseInt(count) == 0) {
-            document.getElementById("message").innerHTML = "You Have Successfully Completed Your Semester with ";
+            document.getElementById("message").innerHTML = "You Have Successfully Cleared  Subjects  ";
             element = document.getElementById("message");
             name="green lighten-1";
             arr = element.className.split(" ");
@@ -162,7 +164,12 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
                }
         }
         
-     
+      if(x==0)
+        {
+
+        
+           document.getElementById("message").innerHTML = "No Data Found  ";
+        }
     </script>
     <script type="text/javascript">
      var k = document.getElementById("myTable").rows.length - 1;
@@ -171,18 +178,20 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
      {
 
    
-         var sum = 0;
+         var g , sum = 0;
          for (var i = 1; i <= k; i++) {
                 var p;
                
                 p = document.getElementById("myTable").rows[i].cells;
-              
+                
                 var grade = String(p[3].innerHTML).trim();
+                 var g=p[5].innerHTML.trim()
                 sum=sum+points(grade)*p[4].innerHTML.trim();
                 
                 }
 
-       var gpa=(sum/21).toPrecision(3);
+     
+       var gpa=(sum/g).toPrecision(3);
                alert("Your Gpa : " + gpa);
 
         }
@@ -217,4 +226,5 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
             }
             return point;
         }
+ 
     </script>
