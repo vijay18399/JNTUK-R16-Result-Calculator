@@ -147,7 +147,7 @@ var Category=req.body.Category;
 resultrecords.find(data, function (err, results) {
 
     res.render('finalresult', {
-      'results': results,'Semester':Semester
+      'results': results,'Semester':Semester,'Category':Category
     });
   });
 });
