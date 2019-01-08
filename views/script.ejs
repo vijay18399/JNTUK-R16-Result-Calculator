@@ -123,17 +123,16 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
         var x = document.getElementById("myTable").rows.length - 1;
         var count = getcount(x);
         function getcount(x) {
- var count = 0;
+        var count = 0;
             for (var i = 1; i <= x; i++) {
                 var y;
                
                 y = document.getElementById("myTable").rows[i].cells;
               
                 var point = String(y[3].innerHTML).trim();
-                  if(x>6){
-                      
-            
-        }
+               
+                
+
                 if (point == "F" || point == "ABSENT") {
                 
                     document.getElementById("myTable").rows[i].style.backgroundColor = "#ffcccc";
@@ -145,7 +144,7 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
         }
        
         if (parseInt(count) == 0) {
-            document.getElementById("message").innerHTML = "You Have Successfully Completed Your Semester";
+            document.getElementById("message").innerHTML = "You Have Successfully Completed Your Semester with ";
             element = document.getElementById("message");
             name="green lighten-1";
             arr = element.className.split(" ");
@@ -166,22 +165,48 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
      
     </script>
     <script type="text/javascript">
+     var k = document.getElementById("myTable").rows.length - 1;
+
+     if(k>6)
+     {
+
+   
+         var sum = 0;
+         for (var i = 1; i <= k; i++) {
+                var p;
+               
+                p = document.getElementById("myTable").rows[i].cells;
+              
+                var grade = String(p[3].innerHTML).trim();
+                sum=sum+points(grade)*p[4].innerHTML.trim();
+                
+                }
+
+       var gpa=(sum/21).toPrecision(3);
+               alert("Your Gpa : " + gpa);
+
+        }
+
     function points(grade) {
         var point=0;
             switch (grade) {
+
                 case "O":
                     point = 10;
                     break;
-                case "A":
+                case "S":
                     point = 9;
                     break;
-                case "B":
+                case "A":
                     point = 8;
                     break;
-                case "C":
+                case "B":
                     point = 7;
                     break;
-                case "D":
+                case "C":
+                    point = 6;
+                    break;
+                 case "D":
                     point = 6;
                     break;
                 case "F":
@@ -190,5 +215,6 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
                 case "ABSENT":
                     point = 0;
             }
+            return point;
         }
     </script>
