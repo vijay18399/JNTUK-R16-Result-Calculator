@@ -8,6 +8,7 @@ var urls=db.get('urls');
 var messages=db.get('messages');
 var schedule=db.get('schedule');
 var resultrecords=db.get('resultrecords');
+var resultrecords2=db.get('resultrecords2');
 var pdf2table = require('pdf2table');
 var fs = require('fs');
 var multer = require('multer');
@@ -47,7 +48,58 @@ router.post('/login',function(req,res){
     }
   });
 });
+// R13 Implementation
+router.post('/result2', upload.single('pdf'), function (req, res) {
+console.log(moment().format('DD/MM/YYYY'));
+  console.log(req.body.semester);
+  console.log(req.file.originalname);
+  var date=moment().format('DD/MM/YYYY');
+  var semester = req.body.semester;
+   var Category = req.body.Category;
+    var creditsum = req.body.creditsum;
+  pdfloc = './public/results/' + req.file.originalname;
+  //start
+  fs.readFile(pdfloc, function (err, buffer) {
+    if (err) return console.log(err);
 
+    pdf2table.parse(buffer, function (err, rows, rowsdebug) {
+      if (err) return console.log(err);
+      console.log(rows);
+
+
+      for (i = 1; i < rows.length; i += 1) {
+        if (rows[i].length == 6) {
+
+          if (rows[i][5].trim() == '0' || rows[i][5].trim() == '1' || rows[i][5].trim() == '2' || rows[i][5].trim()  == '3') {
+            data = {
+              "Htno": rows[i][0],
+              "Subcode": rows[i][1],
+              "Subname": rows[i][2],
+              "Internal": rows[i][3],
+              "External": rows[i][4],
+              "Credits" :rows[i][5],
+               "Semester":semester,
+               "Category":Category,
+               "creditsum": creditsum,
+                "Date":date
+            }
+          
+         resultrecords2.insert(data, function (err, docs) {
+                  console.log(docs);
+                });
+
+     
+       }     
+      
+      }
+
+    }
+  });
+  res.redirect('/admin');
+
+}); });
+///end of implementation
+//R16 Implementation
 router.post('/result', upload.single('pdf'), function (req, res) {
 console.log(moment().format('DD/MM/YYYY'));
   console.log(req.body.semester);
@@ -102,7 +154,7 @@ console.log(moment().format('DD/MM/YYYY'));
 
 
 
-router.get('/admin', function(req, res, next) {
+router.get('/admin', function(req, res) {
   if(req.session && req.session.user){
     res.locals.user = req.session.user;
     console.log(req.session.user._id);
@@ -127,7 +179,7 @@ router.get('/admin', function(req, res, next) {
 
 
 /* GET home page. */
-router.get('/adminlogin', function(req, res, next) {
+router.get('/adminlogin', function(req, res) {
   res.render('index');
 });
 
@@ -151,11 +203,11 @@ resultrecords.find(data, function (err, results) {
     });
   });
 });
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
  status.find({},function(err,status){
    schedule.find({},function(err,schedule){
     messages.find({},function(err,messages){   
-     urls.find({},function(err,urls){  
+     urls.find({  } ,function(err,urls){  
         res.locals.status = status;
          res.locals.schedule = schedule;
       res.locals.messages = messages;
@@ -165,58 +217,42 @@ router.get('/', function(req, res, next) {
 }); }); }); });
 });
 
-router.get('/@18399', function(req, res, next) {
+router.get('/@18399', function(req, res) {
   res.render('register');
 });
-router.get('/1-1', function(req, res, next) {
-  res.render('getresult',{Semester:'1-1',Category:'Regular'});
-});
-router.get('/1-2', function(req, res, next) {
-  res.render('getresult',{Semester:'1-2',Category:'Regular'});
-});
-router.get('/2-1', function(req, res, next) {
-  res.render('getresult',{Semester:'2-1',Category:'Regular'});
-});
-router.get('/2-2', function(req, res, next) {
-  res.render('getresult',{Semester:'2-2',Category:'Regular'});
-});
-router.get('/3-1', function(req, res, next) {
-  res.render('getresult',{Semester:'3-1',Category:'Regular'});
-});
-router.get('/3-2', function(req, res, next) {
-  res.render('getresult',{Semester:'3-2',Category:'Regular'});
-});
-router.get('/4-1', function(req, res, next) {
-  res.render('getresult',{Semester:'4-1',Category:'Regular'});
-});
-router.get('/4-2', function(req, res, next) {
-  res.render('getresult',{Semester:'4-2',Category:'Regular'});
-});
-router.get('/supply1-1', function(req, res, next) {
-  res.render('getresult',{Semester:'1-1',Category:'Supply'});
-});
-router.get('/supply1-2', function(req, res, next) {
-  res.render('getresult',{Semester:'1-2',Category:'Supply'});
-});
-router.get('/supply2-1', function(req, res, next) {
-  res.render('getresult',{Semester:'2-1',Category:'Supply'});
-});
-router.get('/supply2-2', function(req, res, next) {
-  res.render('getresult',{Semester:'2-2',Category:'Supply'});
-});
-router.get('/supply3-1', function(req, res, next) {
-  res.render('getresult',{Semester:'3-1',Category:'Supply'});
-});
-router.get('/supply3-2', function(req, res, next) {
-  res.render('getresult',{Semester:'3-2',Category:'Supply'});
-});
-router.get('/supply4-1', function(req, res, next) {
-  res.render('getresult',{Semester:'4-1',Category:'Supply'});
-});
-router.get('/supply4-2', function(req, res, next) {
-  res.render('getresult',{Semester:'4-2',Category:'Supply'});
+router.get('/regular/:sem', function(req, res) {
+  res.render('getresult',{Semester: req.params.sem,Category:'Regular'});
 });
 
+router.get('/supply/:sem', function(req, res) {
+  res.render('getresult',{Semester: req.params.sem,Category:'Supply'});
+});
+
+router.get('/report', function(req, res) {
+  res.render('report');
+});
+router.get('/finalreport', function(req, res) {
+  data={
+ 
+        "Semester" : '3-1',
+
+        "Category": "Regular",
+        "Credits": '0' 
+    }
+    // db.books.aggregate([{ $group : { _id : "$Subcode", Htno: { $push: "$Htno" } } }])
+   // resultrecords.aggregate([{$group:{_id : "$Subcode", Total: {$sum : 1}}}], function(err, report){
+    //resultrecords.distinct("Subcode", function(err, report){
+    //resultrecords.aggregate(
+   //[ { $sort: { Subcode: 1 }},{ $match: { Credits : "0" } }, { $sort: { Subname: -1 }  } ], function(err, report){
+ resultrecords.aggregate([{ $match: { Credits : "0" } },{ $group : { _id : "$Subname", studentids: { $push: "$$ROOT" } ,count: { $sum: 1 } } }], function(err, report){
+  
+
+
+//console.log(report[1].count);
+     res.locals.report = report;
+  res.render('finalreport');
+});
+});
 
 router.post('/register',function(req,res){
     var data={ fullname:req.body.fullname,
@@ -354,9 +390,14 @@ router.post('/remove_url', function(req, res) {
 });
 //delte records
 router.post('/delete_record', function(req, res) {
-    console.log(req.body.sno);
-    var id = req.body.sno;
-    resultrecords.remove({"Semester":id}, function(err,docs){
+
+    data = {
+     Semester : req.body.Semester,
+    Category :req.body.Category
+  }
+     console.log(data);
+
+    resultrecords.remove(data, function(err,docs){
    res.redirect('/admin');
     });
 });

@@ -157,7 +157,7 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
         } else if (parseInt(count) > 0) {
             document.getElementById("message").innerHTML = "Sorry You have " + count + " Backlogs";
               element = document.getElementById("message");
-            name="#e53935 red darken-1";
+            name="#e53935 red darken-1 shake animated";
             arr = element.className.split(" ");
              if (arr.indexOf(name) == -1) {
             element.className += " " + name;
@@ -192,7 +192,8 @@ $("#heading").html(data1[0].semester +"  "+data1[0].Stream+"  "+data1[0].Categor
 
      
        var gpa=(sum/g).toPrecision(3);
-               alert("Your Gpa : " + gpa);
+            document.getElementById("gpa").innerHTML = gpa + " GPA";
+               
 
         }
 

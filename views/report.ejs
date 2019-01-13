@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+      <% include head %>
+  <body class="layout-light">
+    <!-- Start Page Loading 
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+      <!-- start header nav-->
+      <div class="navbar-fixed">
+        <nav class="navbar-color">
+          <div class="nav-wrapper">
+            <ul>
+              <li >
+                <h1 class="logo-wrapper ">
+             <a  class=" center brand-logo darken-1">
+                    <img src="https://www.vanhool.be/assets/images/logo-autocars-ex.png"  alt="materialize logo">
+                  <span class="hide-on-med-and-down blue-text"> <span class="grey-text">Exam</span> Portal</span>
+                  </a>
+                </h1>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+      <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START MAIN -->
+    <main class="row" >
+   <div class="gradient-45deg-indigo-light-blue padding-1  white-text center" ><h5>Generate Report</h5></div>
+         <div class="card col l10 offset-l1">
+           <form action="/generate_report" method="post"  >
+                                  <div class="row">
+                                       <div class="col s12">
+                                          <select name="Semester" required class="browser-default">
+                                             <option value="" disabled selected>Choose semster</option>
+                                         <option   value="1-1">1-1</option>
+                                         <option value="1-2">1-2</option>
+                                         <option value="2-1">2-1</option>
+                                         <option value="2-2">2-2</option>
+                                          <option value="3-1">3-1</option>
+                                           <option value="3-2">3-2</option>
+                                              <option value="4-1">4-1</option>
+                                           <option value="4-2">4-2</option>
+                                            
+                                          </select>
+                                       </div>
+                                       <label>Select Semester</label>
+                                    </div>
+                                                                              <div class="row">
+                               <div class="col s12 l12">
+                            <select name="Category" required class="browser-default">
+                             <option value="" disabled selected>Choose Category</option>
+                             <option   value="Regular">Regular</option>
+                              <option value="Supply">Supply</option>
+                               </select>
+                             </div>
+                            <label>Select Category</label>
+                             </div>
+                             <div class="row">
+                               <div class="col s12 l12">
+                            <select name="Category" required class="browser-default">
+                             <option value="" disabled selected>Choose Report Type</option>
+                             <option   value="Backlogs">Backlogs Students Report </option>
+                              <option value="Toppers">Topper List</option>
+                               <option value="Graph">Overall Result Analysis</option>
+                               </select>
+                             </div>
+                            <label>Select Report Type</label>
+                             </div>
+
+                          <div class="row">
+                                       <div class="input-field col s12 center">
+                                          <button class="btn waves-effect waves-light " type="submit" name="action">Generate Report
+                                        
+                                          </button>
+                                       </div>
+
+                                    </div>
+                                </form>
+</div>
+      <!-- END WRAPPER -->
+</main>
+
+
+    <!-- END MAIN -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START FOOTER -->
+  
+    <!-- END FOOTER -->
+      <% include script %>
+  </body>
+</html>
