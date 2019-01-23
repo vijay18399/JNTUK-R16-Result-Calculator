@@ -13,7 +13,7 @@ var pdf2table = require('pdf2table');
 var fs = require('fs');
 var multer = require('multer');
 const moment = require('moment');
-
+ var jsonFile = require('jsonfile');
 //----Uploading Code
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
@@ -230,28 +230,6 @@ router.get('/supply/:sem', function(req, res) {
 
 router.get('/report', function(req, res) {
   res.render('report');
-});
-router.get('/finalreport', function(req, res) {
-  data={
- 
-        "Semester" : '3-1',
-
-        "Category": "Regular",
-        "Credits": '0' 
-    }
-    // db.books.aggregate([{ $group : { _id : "$Subcode", Htno: { $push: "$Htno" } } }])
-   // resultrecords.aggregate([{$group:{_id : "$Subcode", Total: {$sum : 1}}}], function(err, report){
-    //resultrecords.distinct("Subcode", function(err, report){
-    //resultrecords.aggregate(
-   //[ { $sort: { Subcode: 1 }},{ $match: { Credits : "0" } }, { $sort: { Subname: -1 }  } ], function(err, report){
- resultrecords.aggregate([{ $match: { Credits : "0" } },{ $group : { _id : "$Subname", studentids: { $push: "$$ROOT" } ,count: { $sum: 1 } } }], function(err, report){
-  
-
-
-//console.log(report[1].count);
-     res.locals.report = report;
-  res.render('finalreport');
-});
 });
 
 router.post('/register',function(req,res){

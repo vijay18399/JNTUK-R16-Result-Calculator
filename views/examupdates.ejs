@@ -12,34 +12,35 @@
                       <h6 class="collection-header m-0">Exam Updates</h6>
                       <p>See the status</p>
                     </li>
-                      <% urls.forEach(function(urls) { %> 
+                     <% for(var i=urls.length-1; i >= 0; i--) { %>
                     <li class="collection-item">
                       <div class="row">
                         <div class="col s6">
-                          <p class="collections-title"> <%= urls.Stream %> <%= urls.semester %> Sem  <%= urls.Category %>    Result is out now </p>
+                          <p class="collections-title"> <%= urls[i].Stream %> <%= urls[i].semester %> Sem  <%= urls[i].Category %>    Result is out now </p>
                           
                         </div>
                         <div class="col s6">
-                          <span class="task-cat "><a href="<%= urls.url %>" class="btn #2196f3 blue animated infinite rubberBand">Click here</a> </span>
+                          <span class="task-cat "><a href="<%= urls[i].url %>" class="btn #2196f3 blue animated infinite rubberBand">Click here</a> </span>
                         </div>
               
                       </div>
                     </li>
-                    <% }); %> 
-                    <% status.forEach(function(status) { %>  
+                    <% } %> 
+                     <% for(var i=status.length-1; i >= 0; i--) { %>
+                  
                     <li class="collection-item">
                       <div class="row">
                         <div class="col s6">
-                          <p class="collections-title"> <%= status.Category %> <%= status.semester %> Semester Result</p>
-                          <p class="collections-content"><%= status.Stream %></p>
+                          <p class="collections-title"> <%= status[i].Category %> <%= status[i].semester %> Semester Result</p>
+                          <p class="collections-content"><%= status[i].Stream %></p>
                         </div>
                         <div class="col s6">
-                          <span class="task-cat cyan"><%= status.Status %> </span>
+                          <span class="task-cat cyan"><%= status[i].Status %> </span>
                         </div>
               
                       </div>
                     </li>
-                    <% }); %>  
+                       <% } %>   
 
                   </ul>
                 </div>

@@ -10,21 +10,21 @@
                       <h6 class="collection-header m-0">Exam Schedules</h6>
                       <p> Acadamic </p>
                     </li>
-                     <% schedule.forEach(function(schedule) { %> 
+                      <% for(var i=schedule.length-1; i >= 0; i--) { %>
                     <li class="collection-item">
                       <div class="row">
                         <div class="col s6">
-                          <p class="collections-title"><%= schedule.semester %>  Semester <%= schedule.examtype %> Schedule</p>
-                          <p class="collections-content"><%= schedule.Stream %></p>
+                          <p class="collections-title"><%= schedule[i].semester %>  Semester <%= schedule[i].examtype %> Schedule</p>
+                          <p class="collections-content"><%= schedule[i].Stream %></p>
                         </div>
                         <div class="col s6">
                         
-                          <a href="<%= schedule.file %>" class="waves-effect waves-light animated infinite pulse  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1">download</a>
+                          <a href="<%= schedule[i].file %>" class="waves-effect waves-light animated infinite pulse  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1">download</a>
                         </div>
               
                       </div>
                     </li>
-                       <% }); %> 
+                       <% } %> 
 
 
                   </ul>

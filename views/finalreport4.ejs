@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+      <title>ss</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Subject Name</th>
+                     <th>Total </th>
+                     <th>Failed</th>
+                     <th>Pass %</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% for(var j=0; j < subject.length; j++) { %>
+                 <tr style="color: red"> <td><h1><%= subject[j].Department %></h1></td><td><h1>Department</h1></td></tr> 
+                  <% report.forEach(function(report) { %> 
+                  <% report1.forEach(function(report1) { %> 
+                  <% if(report._id==report1._id) { %>
+                  <% for(var i=0; i < subject[j].Subjects.length; i++) {%>
+                  <% if(subject[j].Subjects[i]==report._id) { %>
+                  <tr>
+                     <td><%= report._id %></td>
+                     <td><%= report.Total %> </td>
+                     <td><%= report1.Total %></td>
+                     <td><%=  ((report.Total-report1.Total)*100/report.Total).toPrecision(4)  %>%</td>
+                  </tr>
+                  <%} %>
+                  <%} %>
+                  <% } %> 
+                  <% }); %> 
+                  <% }); %><!-- <tr style="color: red"> <td>Completed</td><td>Completed</td></tr>-->   <% } %> 
+               </tbody>
+            </table>
+         </div>
+      </div>
+      </script>
+   </body>
+</html>
+
