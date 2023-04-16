@@ -130,7 +130,7 @@ function calculate() {
   modal.style.display = "none";
   infoTable.style.display = "block";
   document.getElementById("gpa").innerHTML = gpa != '0.00' ? gpa : "Unable to Calculate";
-  document.getElementById("percentage").innerHTML = gpa != '0.00' ? (Number(gpa) - 0.75) * 100 : "Unable to Calculate";
+  document.getElementById("percentage").innerHTML = gpa != '0.00' ? (Number(gpa) - 0.75) * 10 : "Unable to Calculate";
 }
 // Function to download the result as a PDF
 function download() {
