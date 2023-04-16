@@ -1,54 +1,43 @@
+// Importing required modules and packages
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sessions = require('client-sessions');
+const expressLayouts = require('express-ejs-layouts')
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
+// Creating an instance of Express application
 var app = express();
 
-// view engine setup
+// Setting up view engine and static folder
 app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// sessions 
-app.use(sessions({
-  cookieName: 'session',
-  secret: 'blargadeeblargblarg',
-  duration: 7 * 24 * 60 * 60 * 1000,
-  ephemeral: true, // when true, cookie expires when the browser closes
-  httpOnly: true, // when true, cookie is not accessible from javascript
-  secure: true
-}));
-app.get('/logout', function(req, res) {
-  req.session.reset();
-  res.redirect('/');
-});
 
+// Defining routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
+// Handling 404 errors
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Handling other errors
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // Setting locals for rendering the error page
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // Setting status and rendering error page
   res.status(err.status || 500);
   res.render('error');
 });
 
+// Exporting the Express application instance
 module.exports = app;

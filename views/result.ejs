@@ -1,67 +1,140 @@
-            <section class="row tabcontent" id="tab1">
-          
-                           <div class="  col s12 m8 l8  offset-l2 offset-m2">
-                              <div class="card-panel">
-                              <div class="divider"></div>
-                                 <h5 class="header blue-text center">Upload Result</h5>
-                                 <div class="divider"></div>
-                                 <p class="gradient-45deg-light-blue-cyan white-text center">NOTE* : PDF Format Only</p>
-                                 <form action="/result" method="post"  enctype='multipart/form-data'>
-             
-                                    <div class="row">
-                                       <div class="col s12">
-                                          <select name="semester" required class="browser-default">
-                                             <option value="" disabled selected>Choose semster</option>
-                                         <option   value="1-1">1-1</option>
-                                         <option value="1-2">1-2</option>
-                                         <option value="2-1">2-1</option>
-                                         <option value="2-2">2-2</option>
-                                          <option value="3-1">3-1</option>
-                                           <option value="3-2">3-2</option>
-                                              <option value="4-1">4-1</option>
-                                           <option value="4-2">4-2</option>
-                                            
-                                          </select>
-                                       </div>
-                                       <label>Select Semester</label>
-                                    </div>
-                                             <div class="row">
-            <div class="col s12 l12">
-               <select name="Category" required class="browser-default">
-                  <option value="" disabled selected>Choose Category</option>
-                  <option   value="Regular">Regular</option>
-                  <option value="Supply">Supply</option>
-               </select>
-            </div>
-            <label>Select Category</label>
-         </div>
-
-    <div class="row">
-    <div class="input-field col s12">
-
-    <input type="number" name="creditsum" required >
-  
+<% if(!isPost){ %>
+  <div class="container yellow flex align-items-center justify-content-center flex-direction-column">
+    <!-- Form to search for a result by hall ticket number -->
+    <form action="/result/<%= id %>" method="post" class="card flex flex-column">
+      <input style="display: none;" name="id" value=<%=id %> type="text">
+      <input placeholder="Enter Hall Ticket Number" name="roll_number"  required type="text">
+      <button type="submit" class="dark-blue">Search</button>
+    </form>
+  </div>
+<% } else{ %>
+  <!-- Show result for a particular hall ticket number -->
+  <div class="container light-orange flex-row">
+    <div class="card">
+      <div class="card-header flex-row justify-content-space-between">
+        <!-- Display the hall ticket number -->
+        <h3>Result for <%= roll_number %></h3>
+        <% if(records.length!=0){ %>
+          <!-- If there are records, show buttons to download and calculate GPA -->
+          <div class="actions">
+            <button onclick="download()" class="light-blue">Download</button>
+            <button id="open-modal" class="teal">Calculate GPA</button>
+          </div>
+        <% } %>
+      </div>
+      <div id="pdf" class="card-body">
+        <!-- Display the result table -->
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>Subject Name</th>
+              <th>Subject Code</th>
+              <th>Grade</th>
+              <th>Credits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(records.length==0){ %>
+              <!-- If there are no records, show a message -->
+              <tr>
+                <td>No Records</td>
+              </tr>
+            <% } %>
+            <% records.forEach(function(result) { %>
+              <!-- For each record, display the details -->
+              <tr>
+                <td><%= result.subname %></td>
+                <td><%= result.subcode %></td>
+                <td><span><%= result.grade %></span></td>
+                <td><%= result.credits %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <table style="display: none;" id="infoTable">
+          <!-- Table to display GPA and percentage -->
+          <tr>
+            <th>GPA</th>
+            <td id="gpa"></td>
+          </tr>
+          <tr>
+            <th>Percentage</th>
+            <td id="percentage"></td>
+          </tr>
+        </table>
+      </div>
+      <!-- Link to search for another hall ticket number -->
+      <a href="/result/<%= id %>" class="card-footer"><i class="fa fa-search"></i> Search for another</a>
     </div>
-      <label >Credits Sum</label>
+  </div>
+  <!-- Modal for calculating GPA -->
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Please Enter Credit Sum to Calculate Percentage & GPA</h2>
+      <p><input id="creditSum" type="number" name="creditSum" placeholder="Enter Credit Sum"></p>
+      <button onclick="calculate()" type="submit">Calculate</button>
     </div>
+  </div>
+<% } %>
+<script>
+const points = {
+  "O": 10,
+  "S": 9,
+  "A": 8,
+  "B": 7,
+  "C": 6,
+  "D": 5,
+  "F": 0,
+  "ABSENT":0
+}
+const modal = document.querySelector(".modal");
+const infoTable = document.getElementById("infoTable");
+const openModalBtn = document.querySelector("#open-modal");
+const closeModalBtn = document.querySelector(".close");
 
-                        
-                                    <div class="row">
-                                       <div class="input-field col s12">
-                                          <i class="material-icons prefix">file_upload</i>
-                                          <input required type="file" name="pdf" class="validate">
-                                       </div>
-                                       <label>Select Pdf document</label>
-                                    </div>
-                                    <div class="row">
-                                       <div class="input-field col s12 center">
-                                          <button class="btn waves-effect waves-light " type="submit" name="action">Upload
-                                        
-                                          </button>
-                                       </div>
+// Function to open the modal
+openModalBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
 
-                                    </div>
-                                 </form>
-                               </div></div>
-  
-                 </section>
+// Function to close the modal
+closeModalBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Function to close the modal if user clicks outside of it
+window.addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Function to calculate the GPA
+function calculate() {
+  console.log(document.getElementById("creditSum").value);
+  var k = document.getElementById("resultTable").rows.length - 1;
+  console.log(k);
+  console.log(document.getElementById("resultTable"));
+  var g, sum = 0;
+  g = document.getElementById("creditSum").value;
+  for (var i = 1; i <= k; i++) {
+    var p;
+    p = document.getElementById("resultTable").rows[i].cells;
+    console.log(p);
+    var grade = String(p[2].innerText).trim();
+    sum = sum + points[grade] * p[3].innerText.trim();
+  }
+
+  var gpa = (sum / g).toPrecision(3);
+  modal.style.display = "none";
+  infoTable.style.display = "block";
+  document.getElementById("gpa").innerHTML = gpa != '0.00' ? gpa : "Unable to Calculate";
+  document.getElementById("percentage").innerHTML = gpa != '0.00' ? (Number(gpa) - 0.75) * 100 : "Unable to Calculate";
+}
+// Function to download the result as a PDF
+function download() {
+  window.print();
+}
+
+</script>

@@ -1,0 +1,73 @@
+<!--  upload form -->
+<div id="upload" class="container deep-purple flex align-items-center justify-content-center flex-direction-column">
+  <form action="/upload" method="post" enctype="multipart/form-data" class="card flex flex-column">
+    <label for="">Upload JNTUK Results PDF (R16 Regulation) </label>
+    <input  id="file" name="pdf" type="file" accept="application/pdf" />
+    <button type="submit" class="dark-blue disabled">Upload</button>
+  </form>
+</div>
+<!--  loading spinner -->
+<div style="display: none;" id="spinner-container">
+  <div  id="spinner">
+    <h4>Processing PDF</h4>
+  </div>
+</div>
+<!--  error container -->
+<div  style="display: none;" id="error-container">
+  <div id="error">
+    <h4 id="errorMsg"></h4>
+    <h2 href="/">Try with a valid PDF</h2>
+  </div>
+</div>
+<!--  JavaScript script -->
+<script>
+  // Select  form, file input, loading spinner, and error container elements
+  const form = document.querySelector("form");
+  const fileInput = document.querySelector("#file");
+  const loadingIndicator = document.querySelector('#spinner-container');
+  const errorIndicator = document.querySelector('#error-container');
+  const uploadIndicator = document.querySelector('#upload');
+
+  // Add a submit event listener to the form
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent the form from submitting normally
+    if (fileInput.value === "") {
+      alert("Please select a file");
+    } else {
+      loadingIndicator.style.display = "block"; // Show the loading spinner
+      uploadIndicator.style.display = "none"; // Hide the upload form
+      var data = new FormData()
+      data.append('pdf', fileInput.files[0])
+
+      // Send a POST request to the /upload endpoint with the PDF file data
+      fetch("/upload", {
+        method: "POST",
+        body: data,
+      })
+        .then((response) => {
+          // Handle errors
+          if(!response.ok){
+            response.json().then(data => {
+              console.log(data)
+            });
+            loadingIndicator.style.display = "none";
+            errorIndicator.style.display = "block"; // Show the error container
+            document.getElementById('errorMsg').innerText = "Unable to process PDF"; // Set the error message text
+            console.error("Error:", error);
+            return;
+          }
+          // Handle success
+          response.json().then(data => {
+            console.log(data)
+            console.log(data.id); 
+            window.location.href = `/links/${data.id}`; // Redirect to the results page
+            loadingIndicator.style.display = "none"; // Hide the loading spinner
+          });
+        })
+        .catch((error) => {
+          errorIndicator.style.display = "block"; // Show the error container
+          console.error("Error:", error);
+        });
+    }
+  });
+</script>

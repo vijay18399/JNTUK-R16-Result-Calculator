@@ -1,0 +1,19 @@
+<!-- This div contains a card with the result link generated and a button to copy the link to the clipboard -->
+<div class="links-container">
+    <div class="card">
+        <h2>Result Link Generated</h2>
+        <blockquote>
+            <!-- The result link is displayed and its value is dynamic based on the server-generated id -->
+            <a id="link" href="/result/<%= id %>">http://localhost:3000/result/<%= id %></a>
+            <!-- The button triggers the copy() function when clicked -->
+            <button onclick="copy()">Copy to Clipboard</button>
+        </blockquote>
+    </div>
+</div>
+<!-- This script defines the copy() function which copies the result link to the clipboard when called -->
+<script>
+    function copy() {
+        var linkText = document.getElementById("link");
+        navigator.clipboard.writeText(linkText.innerText);
+    }
+</script>
